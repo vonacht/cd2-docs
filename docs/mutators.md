@@ -36,6 +36,10 @@ Example: enemy speed as a linear function of resupplies called during the missio
       }
     }
 ```
+
+## And, Nor, Or 
+Boolean operators.
+
 ## ByBiome
 Change the value based on the mission biome. If a value isn't set for a biome it will use the 'Default' value. A 'Default' must be set unless a value is specified for biomes. If a biome is not recognized and no default is specified, the value for CrystallineCaverns will be used.
 
@@ -104,6 +108,8 @@ Example:
     "PE": 80
  }
 ```
+## ByTime 
+
 ## ByPlayerCount
 Change the value based on the number of players in-game. A solo game gets the first position in the list; two players get the second spot and so on. The last value in the list is used if there are more players than there are values in the list.
 
@@ -194,6 +200,8 @@ Becomes true when a black box, uplink or cell refuel is active.
 Becomes true whenever there is one of the following descriptors active on the map: `ED_Spider_Boss_Heavy` (Hiveguard), `ED_Spider_Boss_TwinA` (Arbalest), `ED_Spider_Boss_TwinB` (Lacerator) and `ED_Spider_Tank_Boss` (classic Dreadnought). 
 ## DuringDrillevator
 Becomes true during the elevator phase in a Deep Scan mission. 
+## DuringEggAmbush
+Returns True during a non-announced wave after pulling an egg in Egg Hunts. 
 ## DuringEncounters
 Becomes true when an encounter (a special kind of wave that happens when breaching rooms in certain mission types) is happening.
 ## DuringExtraction
@@ -217,6 +225,9 @@ Only add stalkers and elite guards to the pool after 240 seconds have elapsed in
 }
 ```
 
+## DuringPECountdown
+Returns True during the extraction phase of a PE mission. 
+
 ## DwarvesAmmo
 Average percent ammo left for the team, 1 when all teammates have 100% of their ammo and 0 when all teammates are at 0% ammo. This works the same way as the 4 bars under the dwarves names in the UI.
 
@@ -237,6 +248,9 @@ Total number of revives for the team during the mission. This includes IW self-r
 
 ## DwarvesShield
 Average shields, 1 when all teammates are at full shield 0 when all teammates are at 0 shield. Untested on shield disruption.
+## ElapsedExtraction
+Returns the elapsed time in the extraction phase of a mission.
+
 ## EnemiesKilled
 Count number of Enemies that have died this mission. Optionally, this can get the deaths of a specific enemy descriptor.
 Despawned enemies because of caps are likely counted. If your difficulty despawns significant amounts of enemies, this number might not match expectations.
@@ -259,6 +273,9 @@ Count of enemies that have died with a specific descriptor:
     "ED": "ED_Spider_Grunt"
 }
 ```
+## EnemyCooldown
+
+
 ## EnemyCount
 Count the number of enemies currently alive on the map. Optionally, this can get the count of a specific enemy descriptor.
 It's possible for this monitor to drift slightly from the actual count if base game events don't fire, but it should always be correct.
@@ -345,6 +362,12 @@ Example: add either arbalests or lacerators to the enemy pool with a higher chan
     }
 }
 ```
+
+## Max 
+Returns the maximum of a value.
+
+## Min 
+Returns the minimum of a value.
 
 ## RandomChoicePerMission
 Choose one of a set of values for each mission. The choice is fixed to the seed of the mission. Subsequent plays of the same seed will use the same value. This mutator can be used with just `Choices`. In that case it will uniformly sample from the choices.
