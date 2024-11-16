@@ -2,7 +2,13 @@
 Modules are the top level hierarchy names for a valid CD2 JSON. The following is an alphabetized list of the current modules.
 
 ## Caps
-Control for the maximum number of enemies in the map.
+Control for the maximum number of enemies in the map, with the following fields:
+
+| Field | Type |
+| ----- | ----- |
+| MaxActiveCritters | Int |
+| MaxActiveEnemies | Int |
+| MaxActiveSwarmers | Int |
 
 Example:
 
@@ -216,7 +222,7 @@ Each `SpecialEncounter` accepts the following fields:
 | ------ | ---- |
 | BaseChance | Float |
 | Enemy | Descriptor |
-| CanSpawnInDeepDive | True |
+| CanSpawnInDeepDive | Bool |
 
 The vanilla `SpecialEncounters` would look like:
 
