@@ -1,0 +1,366 @@
+# Modules
+Modules are the top level hierarchy names for a valid CD2 JSON. The following is an alphabetized list of the current modules.
+
+## Caps
+Control for the maximum number of enemies in the map.
+
+Example:
+
+```json
+"Caps": {
+    "MaxActiveCritters": 40,
+    "MaxActiveSwarmers": [90, 120, 180, 180],
+    "MaxActiveEnemies": [90, 120, 180, 180]
+}
+```
+## Darkness
+The Darkness module offers controls related to lighting and illumination both in the Space Rig and during a mission. It has the following fields:
+
+| Field                 | Type  | 
+| --------------------- | ----- | 
+| FlashlightStrength    | Float |
+| PlayerIllumination    | Float |
+| FlareMax              | Int   |
+| FlareStrength         | Float |
+| FlareDuration         | Float |
+| FlareProductionTime   | Float |
+| EnvironmentalLight    | Float |
+| DisableFog            | Bool  |
+| FlareGunStrength      | Float |
+| FlareGunDuration      | Float |
+
+## Description
+A short explanation of the difficulty.
+
+Example:
+
+```json
+{
+    "Description": "Hazard 6 with double enemies."
+}
+```
+## DifficultySetting
+Main controls for enemy resistance, swarm and wave intervals and enemy counts.
+
+| Field | Description |
+| ------- | ----------| 
+| BaseHazard | Declares a base vanilla hazard, with values from 1 to 5. When a CD2 JSON doesn't specify a certain field, the value is taken from the BaseHazard specified here.|
+| ExtraLargeEnemyDamageResistance ||
+| ExtraLargeEnemyDamageResistanceB ||
+| ExtraLargeEnemyDamageResistanceC ||
+| ExtraLargeEnemyDamageResistanceD ||
+| EnemyDamageResistance ||
+| SmallEnemyDamageResistance ||
+| EnemyDamageResistance ||
+| EncounterDifficulty ||
+| StationaryDifficulty ||
+| EnemyCountModifier ||
+| EnemyWaveInterval ||
+| EnemyNormalWaveInterval ||
+| EnemyNormalWaveDifficulty ||
+| EnemyDiversity ||
+| StationaryEnemyDiversity ||
+| VeteranNormal ||
+| VeteranLarge ||
+| EnviromentalDamageModifier ||
+| PointExtractionScalar ||
+| FriendlyFireModifier || 
+| WaveStartDelayScale ||
+| SpeedModifier ||
+| AttackCooldownModifier ||
+| ProjectileSpeedModifier ||
+| HealthRegenerationMax | Maximum health that the dwarves regenerate naturally to. |
+| ReviveHealthRatio | Health points after revive. |
+
+## Dwarves
+Offers some controls related to the players.
+
+| Field | Description |
+| ------ | ---------|
+| RegenHealthPerSecond | |
+| RegenDelayAfterDamage | |
+| Scale | Player size. |
+
+## Enemies / EnemiesNoSync
+See the [Enemies/EnemiesNoSync](enemies.md) section.
+
+## EscortMule
+Controls for the Drilldozer in Escort missions.
+
+| Field | Type | Default | Comments |
+| --- | ---| ----| ----- | 
+| HealPerTickNormal | Float | 13| Currently unsupported.|
+| HealPerTickUnderAttack | Float | 4.5 | Currently unsupported. |
+| MaxAttackersOmoranFight | Float | 6 | Currently unsupported. |
+| MaxHealth | Float | 520| Currently unsupported. |
+| FriendlyFireModifier | Float | 0.1 | |
+| NeutralDamageModifier | Float | 0.1 | |
+| BigHitDamageModifier |  Float | 0.5 | |
+| BigHitDamageReductionThreshold | Float | 6 | |
+| PST_PoisonResistance | Float | 0.25 | Currently unsupported. |
+| PST_RadiationResistance | Float |  0.5 | Currently unsupported. |
+| PST_ExplosionResistance | Float |  0.5 | Currently unsupported. |
+
+## MaxPlayers
+A field accepting an int specifying the maximum number of players allowed in the lobby. 
+
+```json
+{
+    `MaxPlayers`: 16
+}
+```
+
+## Name
+The name of the difficulty. 
+
+Example:
+
+```json
+{
+    "Name": "Hazard 6x2 40 nitra"
+}
+```
+
+## NextDifficulty
+`NextDifficulty` allows CD2 to automatically pick another difficulty at two specific moments:
+
+1. When launching a mission from the space rig. 
+2. When a mission is finished.
+
+There are many different uses for this field but a typical application is, using the `RandomChoice` mutator, choosing a difficulty at random when launching a mission:
+
+```json
+{ 
+ "Name": "Difficulty Roulette", 
+ "NextDifficulty": {
+  "Mutate": "RandomChoice",
+  "Choices": ["6x2", "6x2-ultra", "7x2", "DIIa8", "ND"]
+ }
+}
+```
+
+Where it is understood that all the names in the `Choices` field are other difficulties existing in your CD2 list. The same snippet can be used to change the difficulty at random in deep dive stages. 
+
+If you don't want the difficulty to change when launching a mission from the Space Rig, the `IfOnSpaceRig` mutator can be used as follows: 
+
+```json
+{
+  "NextDifficulty": {
+    "Mutate": "IfOnSpaceRig",
+    "Then": "",
+    "Else": "My Next Difficulty"
+  }
+}
+```
+
+## NitraMultiplier
+A special module that accepts a float and controls the amount of nitra generated in the map. It has a default of 1. The following snippet would generate twice the amount of nitra in a certain mission:
+
+```json
+{
+    "NitraMultiplier": 2
+}
+```
+
+## Pools
+Pools is where enemies can be added or removed from the different pools in the game. For more information, [this document](https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing) is a detailed explanation about the pools system and how are they used when deciding which enemies are present in a mission. The accepted fields in `Pools` are:
+
+| Field | Type |
+|------| ------- |
+| MinPoolSize |  Int |
+| DisruptiveEnemyPoolCount | Int (min, max) |
+| StationaryEnemycount | Int (min, max) |
+| CommonEnemies | * |
+| SpecialEnemies | * |
+| DisruptiveEnemies | * |
+| StationaryPool | * |
+| EnemyPool | * |
+
+The fields marked with `*` accept the `Add` (list), `Remove` (list) and `Clear` (bool) fields for adding and removing enemies at will. The pools can be freely manipulated with [mutators](mutators.md) during the mission, opening the possibility of adding and removing enemies based on gameplay conditions.
+
+Example:
+
+```json
+{
+    "Pools": {
+    "MinPoolSize": 30,
+    "DisruptiveEnemyPoolCount": {
+      "min": 8,
+      "max": 8
+    },
+    "StationaryEnemyCount": {
+      "Min": 6,
+      "Max": 6
+    },
+    "CommonEnemies": {
+      "Add": [
+        "ED_JellyBreeder_Swarm",
+        "ED_PatrolBot",
+        "ED_Sentinel",
+        "ED_Bomber_Explosive"
+      ]
+    },
+    "StationaryPool": {
+      "Add": ["ED_ShootingPlant_NukeSingle"],
+      "Remove": []
+    }
+  }
+}
+```
+
+## SpecialEncounters
+This module controls the chance of some random events such as the Korlok, Bet-C, etc. Please note that this module is not 100 % functional as some of the encounters depend on the seasons system which CD2 cannot control for now. 
+Each `SpecialEncounter` accepts the following fields:
+
+| Field | Type | 
+| ------ | ---- |
+| BaseChance | Float |
+| Enemy | Descriptor |
+| CanSpawnInDeepDive | True |
+
+The vanilla `SpecialEncounters` would look like:
+
+```json
+{
+    "SpecialEncounters": [
+    {
+      "Enemy": "ED_InfectedMule",
+      "BaseChance": 0.05,
+      "CanSpawnInDeepDive": true
+    },
+    {
+      "Enemy": "ED_Spider_ExploderTank_King",
+      "BaseChance": 0.03,
+      "CanSpawnInDeepDive": false
+    },
+    {
+      "Enemy": "ED_HydraWeed",
+      "BaseChance": 0.05,
+      "CanSpawnInDeepDive": false
+    },
+    {
+      "Enemy": "ED_Terminator",
+      "BaseChance": 0.03,
+      "CanSpawnInDeepDive": true
+    }
+  ]
+}
+```
+
+Example: set all special encounters to zero.
+
+```json
+{
+    "SpecialEncounters": []
+}
+```
+
+`SpecialEncounters` can accept any enemy descriptor in its `Enemy` field and it can be used to make sure there's exactly 1 such enemy for the whole mission. As an example, some difficulties have exactly 1 Vartok Scalebramble per mission:
+
+```json
+{
+    "SpecialEncounters": [
+        {
+          "BaseChance": 1.0,
+          "CanSpawnInDeepDive": true,
+          "Enemy": "ED_TentaclePlant"
+        }
+      ]
+}
+```
+
+## Resupply
+This module contains information about the resupply cost. It accepts a single `float` field `Cost` that can be [mutated](mutators.md).
+
+Example: a fixed resupply cost of 40 nitra.
+
+```json
+{
+    "Resupply": {
+        "Cost": 40
+    }
+}
+```
+
+Example: the first resupply is free, 40 nitra for all others.
+
+```json
+{
+    "Resupply": {
+      "Cost": {
+        "Mutate": "IfFloat",
+        "Value": {
+          "Mutate": "ResuppliesCalled"
+        },
+        "==": 0,
+        "Then": 0,
+        "Else": 40
+      }
+    }
+}
+```
+
+Example: the cost is 45, but after the 6th resupply it drops to 40. 
+
+```json
+{ 
+  "Resupply": {
+    "Cost": {
+      "Mutate": "IfFloat",
+      "Value": {
+        "Mutate": "ResuppliesCalled"
+      },
+      ">": 6,
+      "Then": 40,
+      "Else": 45
+    }
+  }
+}
+```
+
+## Warnings
+The `Warnings` module can be used to ban mission anomalies. It accepts a single `Banned` field which is one or more from the following table:
+
+| CD2 name | In-game name |
+| -------- | ------------ |
+| "MMUT_BloodSugar" | Blood Sugar |
+|       "MMUT_ExplosiveEnemies" | Volatile Guts |
+|       "MMUT_ExterminationContract" | Golden Bugs |
+|       "MMUT_GoldRush" | Gold Rush |
+|       "MMUT_LowGravity" | Low Gravity |
+|       "MMUT_OxygenRich" | Rich Atmosphere |
+|       "MMUT_RichInMinerals" | Mineral Mania |
+|       "MMUT_SecretSecondary" | Secret Secondary |
+|       "MMUT_Weakspot" | Critical Weakness |
+|       "MMUT_XXXP" | Double XP |
+|       "WRN_BulletHell" | Duck and Cover |
+|       "WRN_CaveLeechDen" | Cave Leech Cluster |
+|       "WRN_ExploderInfestation" | Exploder Infestation |
+|       "WRN_Ghost" | Haunted Cave |
+|       "WRN_HeroEnemies" | Elite Enemies |
+|       "WRN_InfestedEnemies" | Parasites |
+|       "WRN_LethalEnemies" | Lethal Enemies |
+|       "WRN_MacteraCave" | Mactera Plague |
+|       "WRN_NoOxygen" | Low O2 |
+|       "WRN_NoShields" | Shield Disruption |
+|       "WRN_Plague" | Lithophage Outbreak | 
+|       "WRN_RegenerativeEnemies" | Regenerative Enemies |
+|       "WRN_RivalIncursion" | Rival Presence |
+|       "WRN_RockInfestation" | Ebonite Outbreak |
+|       "WRN_Swarmagedon | Swarmageddon |
+
+Example: ban Swarmageddon and Low O2 from a difficulty.
+
+```json
+{
+    "Warnings": {
+        "Banned": [
+            "WRN_Swarmagedon",
+            "WRN_NoOxygen"
+        ]
+    }
+}
+```
+
+## WaveSpawners
+See the [WaveSpawners](wavespawners.md) section. 

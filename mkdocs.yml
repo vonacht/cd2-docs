@@ -1,0 +1,16 @@
+site_name: CD2 Reference
+theme: readthedocs
+extra_css:
+  - stylesheets/tables.css
+markdown_extensions: 
+  - attr_list
+  - md_in_html
+nav:
+  - Introduction: index.md
+  - FAQ: faq.md
+  - The Basics of CD2: basics.md
+  - Modules: modules.md 
+  - (Module) Enemies / EnemiesNoSync: enemies.md 
+  - (Module) WaveSpawners: wavespawners.md
+  - Mutators: mutators.md 
+  - Tutorials: grouped_cooldowns.md
