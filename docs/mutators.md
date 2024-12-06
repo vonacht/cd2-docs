@@ -37,8 +37,8 @@ Example: enemy speed as a linear function of resupplies called during the missio
     }
 ```
 
-## And, Nor, Or 
-Boolean operators.
+## And, Or, Not 
+Basic boolean operators.
 
 ## ByBiome
 Change the value based on the mission biome. If a value isn't set for a biome it will use the 'Default' value. A 'Default' must be set unless a value is specified for biomes. If a biome is not recognized and no default is specified, the value for CrystallineCaverns will be used.
@@ -84,6 +84,26 @@ Allows setting a value based on a combination of Mission Type, Length, and Compl
 ```
 The condition with the most matches will be prioritized. Mission type is prioritized over length and length over complexity. An “x” matches anything. In the above a (2,2) refinery would have the value 4.
 
+## ByEscortPhase
+
+Used to detect the different stages of an Escort mission:
+
+```json
+{
+  "Mutate": "ByEscortPhase",
+  "Default": 0,
+  "InGarage": 0.1,
+  "Stationary": 2,
+  "Moving": 30,
+  "WaitingForFuel": 400,
+  "FinalEventA": 5,
+  "FinalEventB": 0.6,
+  "FinalEventC": 70,
+  "FinalEventD": 8,
+  "Finished": 900
+}
+```
+
 ## ByMissionType
 Change the value based on mission type. If a value isn't set for a mission type it will use the 'Default' value. A 'Default' must be set unless a value is specified for all mission types.
 Supported mission types:
@@ -126,6 +146,26 @@ Example:
     ]
 }
 ```
+
+
+## ByRefineryPhase
+
+Used to detect the different stages of a Refinery mission.
+
+```json
+ {
+  "Mutate": "ByRefineryPhase",
+  "Default": 0,
+  "Landing": 1,
+  "ConnectingPipes": 2,
+  "PipesConnected": 3,
+  "Refining": 4,
+  "RefiningStalled": 5,
+  "RefiningComplete": 6,
+  "RocketLaunched": 7
+}
+```
+
 ## Clamp
 Constrain a float (number) to fall within a range. This range is inclusive. If only a min or only a max is specified, the value will only be clamped in that direction.
  

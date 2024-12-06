@@ -17,9 +17,14 @@ This document serves as a reference for Custom Difficulty 2, a mod for [Deep Roc
 * [Wave Spawners](wavespawners.md). Reference for the `WaveSpawners` module.
 * [Mutators](mutators.md). A list of currently supported mutators.
 * [Tutorials](grouped_cooldowns.md). An assortment of small guides related to different CD2 topics.
+* [Resources](resources.md). Useful links related to Custom Difficulty.
 
 <figure markdown="span">
   ![CD2modhub](pictures/cd2-modhub.png)
   <figcaption>Main CD2 screen in Modhub.</figcaption>
 </figure>
+
+## Update Log
+
+* 4-Dec-2024: Updated for CD2-v9: added `ByEscortPhase` and `ByRefineryPhase` mutators.
 
