@@ -219,7 +219,7 @@ Example:
 ```
 ## DescriptorExists
 This is a boolean value which reflects whether an enemy descriptor is available. This is intended to allow a difficulty to fall back to a different descriptor if the desired descriptor isn't available, e.g. if MEV is not available.
-Exammple:
+Example:
 
 ```json
 {
@@ -243,7 +243,32 @@ Becomes true during the elevator phase in a Deep Scan mission.
 ## DuringEggAmbush
 Returns True during a non-announced wave after pulling an egg in Egg Hunts. 
 ## DuringEncounters
-Becomes true when an encounter (a special kind of wave that happens when breaching rooms in certain mission types) is happening.
+Becomes true when Encounters are being placed in the map, that is, during mission generation. One of its uses it to change descriptor properties depending on whether they are part of an encounter or not:
+
+```json 
+{
+    "Enemies": {
+        "ED_Spider_Exploder": {
+             "Base": "ED_Spider_Exploder",
+             "CanBeUsedForConstantPressure": true,
+             "CanBeUsedInEncounters": true,
+             "DifficultyRating": 10,
+             "Rarity": {
+               "Mutate": "If",
+               "Condition": {
+                 "Mutate": "DuringEncounters"
+               },
+               "Then": 0.1,
+               "Else": 5.5
+             }
+        }
+    }
+}
+```
+
+The snippet will force exploders in almost all encounters by giving them a very low rarity during those.
+Clearing the `EnemyPool` when `DuringEncounters` is true will remove encounters from the mission.
+
 ## DuringExtraction
 Becomes true during the extraction phase of the mission, ie, when going back to the drop pod.
 ## DuringGenericSwarm
@@ -386,6 +411,12 @@ Example: as long as the team has called less than 2 resupplies the value is 40. 
 ```
 ## IfOnSpaceRig
 Returns True on the Space Rig. 
+
+## Max 
+Returns the maximum of a value.
+
+## Min 
+Returns the minimum of a value.
 ## RandomChoice
 Given an array of choices, choose one at random. It accepts an optional second list with weights for a weighted sampling of the choices.
 
@@ -402,12 +433,6 @@ Example: add either arbalests or lacerators to the enemy pool with a higher chan
     }
 }
 ```
-
-## Max 
-Returns the maximum of a value.
-
-## Min 
-Returns the minimum of a value.
 
 ## RandomChoicePerMission
 Choose one of a set of values for each mission. The choice is fixed to the seed of the mission. Subsequent plays of the same seed will use the same value. This mutator can be used with just `Choices`. In that case it will uniformly sample from the choices.
