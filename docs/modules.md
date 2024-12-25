@@ -169,7 +169,7 @@ A special module that accepts a float and controls the amount of nitra generated
 ```
 
 ## Pools
-Pools is where enemies can be added or removed from the different pools in the game. For more information, [this document](https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing) is a detailed explanation about the pools system and how are they used when deciding which enemies are present in a mission. The accepted fields in `Pools` are:
+`Pools` is where enemies can be added or removed from the different pools in the game. For more information, [this document](https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing) is a detailed explanation about the pools system and how are they used when deciding which enemies are present in a mission. The accepted fields in `Pools` are:
 
 | Field | Type |
 |------| ------- |
@@ -182,7 +182,7 @@ Pools is where enemies can be added or removed from the different pools in the g
 | StationaryPool | * |
 | EnemyPool | * |
 
-The fields marked with `*` accept the `Add` (list), `Remove` (list) and `Clear` (bool) fields for adding and removing enemies at will. The pools can be freely manipulated with [mutators](mutators.md) during the mission, opening the possibility of adding and removing enemies based on gameplay conditions.
+The fields marked with `*` accept the `Add` (list), `Remove` (list) and `Clear` (bool) fields for adding and removing enemies at will. The `EnemyPool` can be freely manipulated with [mutators](mutators.md) during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. It is not recommended to mutate the other pools. 
 
 Example:
 

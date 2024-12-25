@@ -12,6 +12,8 @@ nav:
   - Modules: modules.md 
   - (Module) Enemies / EnemiesNoSync: enemies.md 
   - (Module) WaveSpawners: wavespawners.md
+  - Projectiles: projectiles.md
   - Mutators: mutators.md 
+  - MEV and DEA: mev-dea.md
   - Tutorials: grouped_cooldowns.md
   - Resources: resources.md
