@@ -20,8 +20,8 @@ This module contains the enemy descriptors. The difficulty can only contain eith
 | SpawnRarityModifiers           | *       |
 | SpawnSpread                    | Float   |
 | UsesSpawnRarityModifiers       | Boolean |
-| UsesVeteranLarge               | Boolean |
-| VeteranClasses                 | **      |
+| UsesVeteranLarge               | See `Veteran control` below. |
+| VeteranClasses                 | See `Veteran control` below. |
 
 ## Enemy controls
 Fields inside [[]] are special submodules that can be found in the sections that follow.
@@ -73,7 +73,7 @@ The type of elite specified as base can modify the characteristics of your custo
 
 ### Veteran control 
 
-Veterans allow some enemies to promote to other enemies. In vanilla the veteran classes are hardcoded (for example, oppressors are praetorians that got promoted with a probability given by the `VeteranLarge` setting in [DifficultySetting](docs/modules.md)). CD2 improves the system by allowing the player to create their own custom veteran classes. There are currently two ways to interact with the veteran system:
+Veterans allow some enemies to promote to other enemies. In vanilla the veteran classes are hardcoded (for example, oppressors are praetorians that got promoted with a probability given by the `VeteranLarge` setting in [DifficultySetting](modules.md)). CD2 improves the system by allowing the player to create their own custom veteran classes. There are currently two ways to interact with the veteran system:
 
 * `VeteranClasses` accepts a list of descriptors that the base descriptor can promote to. `VeteranClasses` uses `VeteranNormal` probablities unless `UsesVeteranLarge` is set to true. The following snippet shows an example:
 
@@ -136,7 +136,28 @@ With these settings, Grunts will promote to acid and web spitters with a 20 % ch
 
 This snippet gives a very high chance of wardens to spawn until there are 5 of them in the map, at which point the probability to get more warden promotions will drop to 0.
 
+### Custom materials
 
+CD2 allows specifying a list of `Materials` in individual enemy descriptors to customize how the enemies look. This feature requires `Enemies` for clients to be able to see the changes.
+
+Example: create an orange septic.
+
+```json 
+{
+    "Enemies": {
+        "ED_Spider_Lobber": {
+            "Materials": ["M_Halloween_Light_Orange", "M_Halloween_Light_Orange"]
+        }
+    }
+}
+
+```
+<figure markdown="span">
+  ![CD2modhub](pictures/orange-septic.png)
+</figure>
+
+
+Each enemy has a certain number of material slots. There are hundreds of available materials, but not all of them work when used in enemies. The best way to test and find new materials for your enemies is spawning the enemy in [Sandbox Utilities](https://mod.io/g/drg/m/sandbox-utilities) and changing them, and you will be able to see the change in real time. This procedure is explained in [this document](media/Materials-1.pdf) by @TheBrain.
 
 
 ## Resistances 

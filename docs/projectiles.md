@@ -22,10 +22,10 @@
 
 | Name |
 | -------------------    | 
+| "BP_BoscoAbillityProjectile_C" |
 | "BP_Bosco_FoamGlob_C" |
 | "BP_Bosco_Rocket_Frag_C" |
 | "BP_Bosco_Rocket_Ice_C" |
-| "BP_BoscoAbillityProjectile_C" |
 | "BP_CameraDrone_FlareProjectile_C" |
 | "BP_ClusterFragment_MicroMissileLauncher_C" |
 | "BP_FoamRocket_C" |
@@ -33,17 +33,17 @@
 | "BP_MicroRocket_HE_C" |
 | "PRJ_AcidDrop_C" |
 | "PRJ_AcidDrop_Ice_C" |
-| "PRJ_Base_Spider_Lobber_Projectile_C" |
 | "PRJ_BaseBigGooProjectile_C" |
 | "PRJ_BaseGooProjectile_C" |
 | "PRJ_BaseNormalGooProjectile_C" |
-| "PRJ_BigGoo_Buckshot_C" |
+| "PRJ_Base_Spider_Lobber_Projectile_C" |
 | "PRJ_BigGooProjectile_C" |
 | "PRJ_BigGooProjectile_Trail_C" |
-| "PRJ_Bomber_Fire_C" |
+| "PRJ_BigGoo_Buckshot_C" |
+| "PRJ_BombSpitter_C" |
 | "PRJ_BomberGoo_C" |
 | "PRJ_BomberIce_C" |
-| "PRJ_BombSpitter_C" |
+| "PRJ_Bomber_Fire_C" |
 | "PRJ_Boss_Twin_Stomp_C" |
 | "PRJ_BreederEgg_C" |
 | "PRJ_CactusSpike_C" |
@@ -61,11 +61,11 @@
 | "PRJ_DrippingPlant_C" |
 | "PRJ_ExploderTankClusterBomb_C" |
 | "PRJ_ExplosiveBombDrop_C" |
+| "PRJ_FacilityTentacleProjectile_C" |
+| "PRJ_FacilityTurretLaser_Sniper_C" |
 | "PRJ_Facility_Barrier_Base_C" |
 | "PRJ_Facility_Laser_Base_C" |
-| "PRJ_FacilityTentacleProjectile_C" |
 | "PRJ_FacilityturretLaser_Burst_C" |
-| "PRJ_FacilityTurretLaser_Sniper_C" |
 | "PRJ_FlameWall_C" |
 | "PRJ_FlareGun_Projectile01_C" |
 | "PRJ_FlyingSmartRock_C" |
@@ -74,15 +74,15 @@
 | "PRJ_GooProjectile_Fragment_Base_C" |
 | "PRJ_GooProjectile_Fragment_GooBomoberSpecial_C" |
 | "PRJ_GooProjectile_Fragment_Normal_C" |
-| "PRJ_Grenade_HackeShredder_C" |
-| "PRJ_Grenade_StickySmall_C" |
 | "PRJ_GrenadeAxe_C" |
 | "PRJ_GrenadeLauncher_C" |
+| "PRJ_Grenade_HackeShredder_C" |
+| "PRJ_Grenade_StickySmall_C" |
 | "PRJ_GuntowerLineProjectile_C" |
 | "PRJ_HomingDrone_C" |
-| "PRJ_HydraWeed_Shooter_C" |
 | "PRJ_HydraWeedSpawn_C" |
 | "PRJ_HydraWeedSpawn_HealingPod_C" |
+| "PRJ_HydraWeed_Shooter_C" |
 | "PRJ_InfectedMuleGrenade_C" |
 | "PRJ_LargeStabbyThorn_C" |
 | "PRJ_LineCutter2_C" |
@@ -109,11 +109,11 @@
 | "PRJ_PowerupSphere_C" |
 | "PRJ_ProjectileBarf_C" |
 | "PRJ_RedThorn_C" |
+| "PRJ_RockpoxBomber_PlagueDrop_C" |
 | "PRJ_Rockpox_Breede_VomitedLarva_C" |
 | "PRJ_Rockpox_Breeder_WormVomit_C" |
 | "PRJ_Rockpox_PlagueGlob_C" |
 | "PRJ_Rockpox_PlagueGlob_PlagueShark_C" |
-| "PRJ_RockpoxBomber_PlagueDrop_C" |
 | "PRJ_SentryOvercharge_Projectile_C" |
 | "PRJ_ShootingPlant_C" |
 | "PRJ_Spider_Boss_Heavy_C" |
@@ -151,6 +151,10 @@ To make use of these you will need to have MEV installed.
 | "PRJ_HydraWeed_Shooter_Sound_C" |
 | "PRJ_HydraWeed_Shooter_Sound_Web_C" |
 | "PRJ_Hyper2_C" |
+| "PRJ_Mactera_Shooter_electric_C" |
+| "PRJ_Mactera_Shooter_fire_C" |
+| "PRJ_Mactera_Shooter_ice_C" |
+| "PRJ_Mactera_Shooter_poison_C" |
 | "PRJ_PatrolBotRocket_fast_C" |
 | "PRJ_PatrolBotRocket_slow_C" |
 | "PRJ_Roll2_C" |
@@ -178,29 +182,29 @@ To make use of these you will need to have DEA installed. Comments by mod author
 
 | Name | Comment | 
 | ---- | ----- |
-| PRJ_Spider_Spitter_Cyan | |
-| PRJ_Spider_Spitter_White | |
-| PRJ_Spider_Spitter_Pink | STE_MarkedForDeath_Spitter |
-| PRJ_Spider_Spitter_Stagger | |
-| PRJ_Fanatic_Fireball | All variants |
-| PRJ_Ice_Shooter | |
-| PRJ_RJ_Lobber | |
-| PRJ_Sniper_Turret_Slow | |
-| PRJ_Nukebomber_Bomb | |
-| PRJ_Nukebomber_Shot | |
 | PRJ_AcidBomber_Drop | |
 | PRJ_AcidBomber_Shot | |
+| PRJ_Exploder_SpawnShot | Used by Bomber_Exploder |
+| PRJ_Exploder_SpawnShot_Baller | Used by ShootingPlant_Spawner_Boomer |
+| PRJ_Fanatic_Fireball | All variants |
+| PRJ_Ice_Shooter | |
+| PRJ_Mactera_Breach | Used by Mactera_Brendle and Mactera_Brooter |
+| PRJ_Nukebomber_Bomb | |
+| PRJ_Nukebomber_Shot | |
+| PRJ_PheroShot and PRJ_SpawnDrop | Used by Parabomber |
+| PRJ_RJ_Lobber | |
+| PRJ_Sniper_Turret_Slow | |
 | PRJ_Spawninator_One_Meatball | |
 | PRJ_Spawninator_Two_Meatball | |
 | PRJ_Spawnshot | Used by _Slobber and _Shooter_Spawner |
-| PRJ_Spawnshot_Dense | Used by _SlobberEX, _Shooter_SpawnerEX, and ShootingPlant_Spawner |
 | PRJ_SpawnshotEX | Used by Fauxnought and ShootingPlant_SpawnerEX |
-| PRJ_Exploder_SpawnShot | Used by Bomber_Exploder |
-| PRJ_Exploder_SpawnShot_Baller | Used by ShootingPlant_Spawner_Boomer |
-| PRJ_PheroShot and PRJ_SpawnDrop | Used by Parabomber |
-| PRJ_Mactera_Breach | Used by Mactera_Brendle and Mactera_Brooter |
-| PRJ_Spider_Tank_Boss | Used by Shooter_Fire | |
-| PRJ_Spider_Shooter_Ground | Grooter and wall variant |
+| PRJ_Spawnshot_Dense | Used by _SlobberEX, _Shooter_SpawnerEX, and ShootingPlant_Spawner |
 | PRJ_Spider_Shooter | Ceiling grooter |
+| PRJ_Spider_Shooter_Ground | Grooter and wall variant |
 | PRJ_Spider_Spitter | Gritters |
+| PRJ_Spider_Spitter_Cyan | |
+| PRJ_Spider_Spitter_Pink | STE_MarkedForDeath_Spitter |
+| PRJ_Spider_Spitter_Stagger | |
+| PRJ_Spider_Spitter_White | |
+| PRJ_Spider_Tank_Boss | Used by Shooter_Fire | |
 

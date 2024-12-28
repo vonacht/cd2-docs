@@ -1,4 +1,5 @@
 site_name: CD2 Reference
+site_description: Unofficial reference docs for CD2 (and other resources).
 theme: readthedocs
 extra_css:
   - stylesheets/tables.css

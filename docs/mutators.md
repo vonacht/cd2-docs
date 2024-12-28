@@ -129,6 +129,25 @@ Example:
  }
 ```
 ## ByTime 
+Change a value over time. Time matches the mission clock in the escape menu in-game, including starting before players receive control of their dwarves.
+The value is determined by `InitialValue + RateOfChange * Max(0, Time - StartDelay)`.
+
+Parameters:
+
+* `InitialValue` - Value at time 0 and up until StartDelay
+* `StartDelay` - Time in seconds to stay at the InitialValue before changing.
+* `RateOfChange` - Rate per second to change the value.
+
+Example: 
+
+```json
+{
+    "Mutate": "ByTime",
+    "InitialValue": 3.1,
+    "RateOfChange": 0.0033,
+    "StartDelay": 400
+}
+```
 
 ## ByPlayerCount
 Change the value based on the number of players in-game. A solo game gets the first position in the list; two players get the second spot and so on. The last value in the list is used if there are more players than there are values in the list.

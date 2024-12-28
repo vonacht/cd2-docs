@@ -1,8 +1,8 @@
 # MEV and DEA
 
-MEV and DEA are two common mods that add enemies to the game. They are used in a few commonly played difficulties and although they are not directly related to CD2, it is handy to have a list of the new enemy descriptors they add. Some of the enemies here can be replicated with CD2 without needing an external mod with the use of custom materials and [projectiles](projectiles.md). 
+MEV and DEA are two common mods that add enemies to the game. They are used in a few commonly played difficulties and although they are not directly related to CD2, it is handy to have a list of the new enemy descriptors they add. Some of the enemies here can be replicated with CD2 without needing an external mod with the use of custom materials and [projectiles](projectiles.md); some enemies in these mods, however, have changes in their behaviour tree which are impossible to replicate with CD2 for now. 
 
-Neither of the two mods are in mod.io and they can be found as .pak files in the Practical DRG Discord. The mods themselves don't do anything: in order to spawn them, they have to be included in a CD2 file.
+Neither of the two mods are in mod.io and they can be found as .pak files in the Practical DRG Discord. The mods don't do anything by themselves: in order to spawn the new enemies, their descriptors have to be included in a CD2 file.
 
 ## MEV
 
@@ -29,7 +29,7 @@ These grunts are recolors of the normal grunt and its veterans (Guards and Slash
 
 ### Breeders 
 
-These breeders are recolors of the normal breeder. Their main use is to be able to have multiple breeders spawning different enemies in the same mission, which before CD2 was only partially possible by using the rockpox breeder as a second variant. As an alternative way, CD2 now allows to have multiple breeder descriptors with different settings (see the `Grabber` module in [Enemies](enemies.md).)
+These breeders are recolors of the normal breeder. Their main use is to be able to have multiple breeders spawning different enemies in the same mission, which before CD2 was only partially possible by using the rockpox breeder as a second variant. As an alternative way, CD2 now allows to have multiple breeder descriptors with different settings (see the `Breeder` module in [Enemies](enemies.md).)
 
 | ED name | Comments |
 | --------- | ------- |
@@ -41,7 +41,7 @@ These breeders are recolors of the normal breeder. Their main use is to be able 
 To use these, override the specified dummy jelly descriptor with the ED you want to spawn:
 
 ```json
-"ED_JellyBreeder_purple": {
+"ED_Jelly_Spawn_dummy_purple": {
     "Base": "ED_Spider_Exploder"
 }
 ```
@@ -197,8 +197,6 @@ Descriptions provided by the mod author @donnie_danko. Updated for version 5.5.
 | ED_Spider_Shooter_Bouncer  | A ground acid spitter which lobs RJ250 at you. Should do half the damage of a typical spitter prj, within 2m max damage radius. | 
 | ED_Spider_Shooter_Fire  | An acid spitter variant which fires OG dread fireball, slightly less aggressive behavior. | 
 | ED_Spider_Shooter_Ice  | An acid spitter variant which applies cold damage on hit, rather than the acid STE. | 
-| ED_Spider_Shooter_Spawner  | A ground acid spitter which lobs dreadnaught swarmer eggs which spawn 2*enemy count modifier of ED_Spider_Swarmer_SpawnShot. | 
-| ED_Spider_Slobber  | A septic spreader variant which lobs deadnaught swarmer eggs which spawn 2*enemy count modifier of ED_Spider_Swarmer_SpawnShot. | 
 | ED_Spider_Spitter_Cyan  | A web spitter variant which applies the stalker shield disruption effect. |
 | ED_Spider_Spitter_Pink  | A web spitter variant which applies a marked-for-death status effect. |
 | ED_Spider_Spitter_Stagger  | A web spitter variant which applies the slasher stun effect. |
@@ -226,19 +224,21 @@ Descriptions provided by the mod author @donnie_danko. Updated for version 5.5.
 | ED name | Comments |
 | ------- | -------- |
 | ED_Spider_Fanatic  | A menace variant which uses the arbalest fireball fan attack, rather than normal menace attack. Long delay between attacks, and fires 5 times before reburrowing.  | 
-| ED_Spider_ShotgunMenace  | Similar to the Fanatic, but fires 9 fireballs in a grid pattern, rather than 5 in a fan. | 
 | ED_Spider_FanaticEX | Original pre nerf version of Fanatic, with normal menace AI |
+| ED_Spider_ShotgunMenace  | Similar to the Fanatic, but fires 9 fireballs in a grid pattern, rather than 5 in a fan. | 
 | ED_Spider_ShotgunMenaceEX | Same for the ShotgunMenace. |
 
 ### Spawner enemies
 
 | ED name | Comments |
 | - | - |
-| ED_Spider_SlobberEX | Spawns 6*enemy count modifier. |
-| ED_Spider_Shooter_SpawnerEX | Spawns 6*enemy count modifier. |
 | ED_ShootingPlant_Spawner | Fires spawn egg which spawns 6*enemy count modifier of ED_Spider_Swarmer_SpawnShot. |
-| ED_ShootingPlant_SpawnerEX | Also applies phero STE. |
+| ED_ShootingPlant_SpawnerEX | Same as above but also applies phero STE. |
 | ED_ShootingPlant_Spawner_Boomer | Fires spawn egg which spawns 6*enemy count modifier of ED_Spider_Exploder_SpawnShot. |
+| ED_Spider_Shooter_Spawner  | A ground acid spitter which lobs dreadnaught swarmer eggs which spawn 2*enemy count modifier of ED_Spider_Swarmer_SpawnShot. | 
+| ED_Spider_Shooter_SpawnerEX | Same as above but spawns 6*enemy count modifier. |
+| ED_Spider_Slobber  | A septic spreader variant which lobs deadnaught swarmer eggs which spawn 2*enemy count modifier of ED_Spider_Swarmer_SpawnShot. | 
+| ED_Spider_SlobberEX | Same as above but spawns 6*enemy count modifier. |
 
 ### Dreadnought variants
 
@@ -250,8 +250,8 @@ Do not recommend allowing these to exist at the same time as vanilla twins. will
 | ED_Banshee | Arbalest variant that only uses grieve attack. |
 | ED_Fauxbalester | Arbalester that will use both attacks. |
 | ED_Fauxbalester_Locked | Arbalester that will only use mines. Technically behaves as a post heal Arbalest, but just uses mines in place of fan attack. |
-| ED_Fauxnought | Non health gated dreadnought, slightly smaller than normal dread. Has slightly above Oppressor health and Large enemy health scaling. Eggshot spawns ED_Spider_Swarmer_SpawnShot. |
-| ED_Fauxnought_Tank | fauxnought with stun immunity, may make some additional changes to bring more in line with dread
+| ED_Fauxnought | Non health gated dreadnought, slightly smaller than normal dread and can be stunned. Has slightly above Oppressor health and Large enemy health scaling. Eggshot spawns ED_Spider_Swarmer_SpawnShot. |
+| ED_Fauxnought_Tank | A Fauxnought with stun immunity, may make some additional changes to bring more in line with dread
 | ED_Lassie_Aggro | A work around for my inability to make an unlocked lacerator without messing up the stomp attack. Trades out the fire attack for burrow. |
 | ED_Lassie_Locked | A Lacerator that will not use burrow attack. Seems to really like its flamethrower attack, probably needs some tweaking.  |
 | ED_Lassie_Unlocked | A Lacerator that will use burrow attack.  |

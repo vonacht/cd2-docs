@@ -19,6 +19,9 @@ Example:
     "MaxActiveEnemies": [90, 120, 180, 180]
 }
 ```
+
+When the number of enemies in the map reach their cap, new enemies will be prevented from spawning and some existing enemies will despawn. The exact mechanics behind this behaviour are not completely understood. 
+
 ## Darkness
 The Darkness module offers controls related to lighting and illumination both in the Space Rig and during a mission. It has the following fields:
 
@@ -46,11 +49,12 @@ Example:
 }
 ```
 ## DifficultySetting
-Main controls for enemy resistance, swarm and wave intervals and enemy counts.
+Main controls for enemy resistance, swarm and wave intervals and enemy counts. Please check [A Quick and Dirty Guide to Custom Difficulty for Deep Rock Galactic](https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0), a CD1 guide explaining most of the fields inside this module.
+ 
 
 | Field | Description |
 | ------- | ----------| 
-| BaseHazard | Declares a base vanilla hazard, with values from 1 to 5. When a CD2 JSON doesn't specify a certain field, the value is taken from the BaseHazard specified here.|
+| BaseHazard | Declares a base vanilla hazard, with values from 1 to 5. When a CD2 JSON doesn't specify a certain field, the value is taken from the `BaseHazard` specified here.|
 | ExtraLargeEnemyDamageResistance ||
 | ExtraLargeEnemyDamageResistanceB ||
 | ExtraLargeEnemyDamageResistanceC ||
@@ -112,13 +116,12 @@ A field accepting an int specifying the maximum number of players allowed in the
 
 ```json
 {
-    `MaxPlayers`: 16
+    "MaxPlayers": 16
 }
 ```
 
 ## Name
-The name of the difficulty. 
-
+The name of the difficulty. This field is necessary to be able to save the file in the in-game CD2 dropdown.
 Example:
 
 ```json
@@ -182,7 +185,7 @@ A special module that accepts a float and controls the amount of nitra generated
 | StationaryPool | * |
 | EnemyPool | * |
 
-The fields marked with `*` accept the `Add` (list), `Remove` (list) and `Clear` (bool) fields for adding and removing enemies at will. The `EnemyPool` can be freely manipulated with [mutators](mutators.md) during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. It is not recommended to mutate the other pools. 
+The fields marked with `*` accept the `Add` (list), `Remove` (list) and `Clear` (bool) fields for adding and removing enemies at will. The `EnemyPool` can be freely manipulated with [mutators](mutators.md) during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. **It is not recommended to mutate the other pools.** 
 
 Example:
 
@@ -288,7 +291,7 @@ Example: a fixed resupply cost of 40 nitra.
 }
 ```
 
-Example: the first resupply is free, 40 nitra for all others.
+The `StartingNitra` field from CD1 does not exist in CD2: the same functionality is done with mutators. Example: the first resupply is free, 40 nitra for all others.
 
 ```json
 {
