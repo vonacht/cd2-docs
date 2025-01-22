@@ -93,7 +93,7 @@ Original list [here](https://github.com/trumank/drg-custom-difficulties/blob/mas
 | ED_Spider_Tank_RockpoxPlague| 	Rockpox infected Glyphid Praetorian|
 | ED_Spider_Tank_Rock| 	Ebonite Glyphid Praetorian|
 | ED_Spider_Tank| 	Praetorian|
-| ED_Tentacle_Plant | Vartok Scalebramble |
+| ED_TentaclePlant | Vartok Scalebramble |
 | ED_Terminator| 	Rival Nemesis|
 | ED_TunnelSwarmer| 	Swarmers spawned by triggering a Glyphid Tunnel|
 | ED_WalkingPlagueheart| 	Rockpox Corruptor|

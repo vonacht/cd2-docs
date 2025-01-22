@@ -46,7 +46,7 @@ Change the value based on the mission biome. If a value isn't set for a biome it
 | Official name | Alias 1 | Alias 2 |
 | ------------- |-------|------------|
 | BIOME_AzureWeald | AzureWeald |
-| BIOME_CrystalCaves | CrystalCave | CrystallineCaverns |
+| BIOME_CrystalCaves | CrystalCaves | CrystallineCaverns |
 | BIOME_FungusBogs | FungusBogs |
 | BIOME_HollowBough | HollowBough |
 | BIOME_IceCaves | IceCaves | GlacialStrata |
@@ -302,7 +302,7 @@ Only add stalkers and elite guards to the pool after 240 seconds have elapsed in
 "EnemyPool"{
     "add" {
         "Mutate": "If", 
-        "Condition": {"Mutate": "DuringMission", "StartingAfter": 240},
+        "Condition": {"Mutate": "DuringMission", "StartingAt": 240},
         "Then": ["ED_Spider_Stalker", "ED_Spider_Grunt_Guard_Elite"],
         "Else": []
     }
