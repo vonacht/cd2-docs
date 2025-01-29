@@ -30,4 +30,5 @@ This document serves as a reference for Custom Difficulty 2, a mod for [Deep Roc
 
 * 4-Dec-2024: Updated for CD2-v9: added `ByEscortPhase` and `ByRefineryPhase` mutators.
 + 25-Dec-2024: Updated for CD2-v10: added the [Projectiles](projectiles.md) page, added the [MEV and DEA](mev-dea.md) page, added an explanation for elite and veteran enemies in [Enemies](enemies.md), added the explanation for the new `Spawner` enemy control, and some minor corrections. 
++ 29-Jan-2025: Updated for CD2-v11: added the `Direct` and `UsesBiomeVariants` enemy controls and the `BySaboPhase` mutator.
 

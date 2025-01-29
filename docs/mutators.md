@@ -185,6 +185,27 @@ Used to detect the different stages of a Refinery mission.
 }
 ```
 
+## BySaboPhase
+
+Used to detect the different stages of a Sabotage mission.
+
+```json 
+{
+  "Mutate": "BySaboPhase",
+  "Default": "Default Value",
+  "Hacking": "Hacking Value",
+  "BetweenHacks": "BetweenHacks Value",
+  "HackingFinished": "HackingFinished Value",
+  "Phase1Vent": "Phase1VentValue",
+  "Phase1Eye": "Value for Phase1Eye",
+  "Phase2Vent": "Value for Phase2Vent",
+  "Phase2Eye": "Value for Phase2Eye",
+  "Phase3Vent": "Phase3Vent Value",
+  "Phase3Eye": "Value to use during Phase3Eye",
+  "Finished": "Value for Finished"
+}
+```
+
 ## Clamp
 Constrain a float (number) to fall within a range. This range is inclusive. If only a min or only a max is specified, the value will only be clamped in that direction.
  

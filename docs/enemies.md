@@ -32,6 +32,7 @@ Fields inside [[]] are special submodules that can be found in the sections that
 | CanPlayerStandOn          | Boolean         |  |
 | CaveLeech                 | [[CaveLeech]]   | See the `CaveLeech` module below for special Cave Leech controls. |
 | Courage                   | Float           | |
+| Direct                    | [Int, Float, Bool, Pcol] | Special control that can expose enemy properties (see example below). |
 | DisplayName               | String          | |
 | Elite                     | Float \| Bool         | This field accepts a float number indicating the percentage of Elite enemies that will spawn for that descriptor. |
 | EnemyHealthScaling        | String          | |
@@ -55,7 +56,48 @@ Fields inside [[]] are special submodules that can be found in the sections that
 | StaggerDurationMultiplier | Float           | |
 | Temperature               | [[Temperature]] | See the `Temperature` submodule below. |
 | TimeDilation              | Float           | Speeds up the enemy's attack and movement. Please note that time-dilating enemies can be a source of desync. |
+| UsesBiomeVariants         | Boolean           | Enables/disables the biome variants of enemies (eg. Frost Praetorian in Glacial Strata). |
 | WeakpointHP               | Float           | |
+
+### `Direct` special control 
+
+`Direct` allows to directly change enemy properties as defined in UE4. For example:
+
+```json
+"ED_Spider_ExploderTank": {
+    "Direct": {
+        "Int:NumClusterBombs": 200 
+    }
+}
+```
+
+```json 
+"ED_Spider_Exploder": {
+  "Movement": {
+    "MaxPawnSpeed": 5,
+    "MaxAcceleration": 5,
+    "MaxBrakingDeceleration": 10,
+    "AlignDirectionSpeed": 10,
+    "AlignToTargetMinRequiredAngle": 1,
+    "StrafeSpeed": 5
+  },
+  "Direct": {
+    "PCol:Mesh": true
+  },
+  "CanPlayerStandOn": true,
+  "Alert": true
+}
+```
+
+```json 
+"ED_JellyBreeder": {
+  "Direct": {
+    "Bool:Capsule.bHiddenInGame": false,
+    "PCol:Capsule": true
+  },
+  "CanPlayerStandOn": true
+}
+```
 
 ### Elite variants for all enemies
 
