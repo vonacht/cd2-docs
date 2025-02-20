@@ -217,6 +217,50 @@ Example:
 }
 ```
 
+## Salvage
+A special module offering customization options for Salvage missions. It contains three submodules: `MiniMules`, `Uplink` and `Refuel` with the following fields:
+
+| Submodule | Field                  | Type   | Default | Description                                                                      |
+| --------- | ---------------------- | ------ | ------- | -------------------------------------------------------------------------------- |
+| MiniMules | ScanUsable             | Usable |         | Settings for e holding to scan for legs                                          |
+| MiniMules | RepairUsable           | Usable |         | Settings for e holding to repair the minimule                                    |
+| MiniMules | LegsRequired           | Int    | 3       | Number of legs that must be attached before allowing repair                      |
+| MiniMules | LegsPerMule            | Int    | 4       | Number of legs to spawn per minimule                                             |
+| MiniMules | LegDistance            | Float  | 1500    | Untested, should be distance legs spawn from the minimules                       |
+| MiniMules | Count                  | Int    | 2       | Number of minimules to spawn (or 1.5x on long Salvage)                           |
+| --------- | ---------------------- | ------ | ------- | -------------------------------------------------------------------------------- |
+| Uplink    | RepairUsable           | Usable |         | Settings for holding e to activate the uplink                                    |
+| Uplink    | Scale                  | Float  | 1       | Size of the triangulation zone                                                   |
+| Uplink    | Duration               | Float  | 80      | Defense duration in seconds                                                      |
+| Uplink    | ExtraDefenderBonus     | Float  | 0.25    |                                                                                  |
+| Uplink    | DisableLeaveShout      | Bool   | false   | Disables mission control messages when there are no players in the defense area. |
+| Uplink    | LeavePenaltyMultiplier | Float  | 1       | 1 means vanilla penalty (2x the speed progress normally increases)               |
+| --------- | ---------------------- | ------ | ------- | -------------------------------------------------------------------------------- |
+| Refuel    | RepairUsable           | Usable |         |                                                                                  |
+| Refuel    | Scale                  | Float  | 1       | Size of the triangulation zone                                                   |
+| Refuel    | Duration               | Float  | 100     | Defense duration in seconds                                                      |
+| Refuel    | ExtraDefenderBonus     | Float  | 0.25    |                                                                                  |
+| Refuel    | DisableLeaveShout      | Bool   | false   |                                                                                  |
+| Refuel    | LeavePenaltyMultiplier | Float  | 1       | 0 means no lost progress if leaving the defense area                             |
+
+Example: a salvage where each mule spawns 20 legs and requires 15 to be repaired, and the area of the uplink bubble is 1.5x the normal.
+
+```json
+{
+    "Salvage": {
+       "MiniMules": {
+            "LegsPerMule": 20,
+            "LegsRequired": 15
+        },
+        "Uplink": {
+            "Scale": 1.5
+        }
+    }
+}
+```
+
+Please see the `BySalvagePhase` [mutator](mutators.md) for values that need to change during different phases of the mission. 
+
 ## SpecialEncounters
 This module controls the chance of some random events such as the Korlok, Bet-C, etc. Please note that this module is not 100 % functional as some of the encounters depend on the seasons system which CD2 cannot control for now. 
 Each `SpecialEncounter` accepts the following fields:
@@ -291,7 +335,19 @@ Example: a fixed resupply cost of 40 nitra.
 }
 ```
 
-The `StartingNitra` field from CD1 does not exist in CD2: the same functionality is done with mutators. Example: the first resupply is free, 40 nitra for all others.
+The `StartingNitra` field from CD1 does not exist in CD2: the same functionality is done with mutators. Example: the first resupply is free, 40 nitra for all others:
+
+```json 
+{
+    "Resupply": {
+        "Cost": {
+            "Mutate": "ByResuppliesCalled",
+            "Values": [0, 40]
+        }
+    }
+}
+```
+
 
 ```json
 {
@@ -308,6 +364,8 @@ The `StartingNitra` field from CD1 does not exist in CD2: the same functionality
     }
 }
 ```
+
+While both snippets do the same thing, `ByResuppliesCalled` is usually more compact when specifying a different cost for the first few supplies.
 
 Example: the cost is 45, but after the 6th resupply it drops to 40. 
 

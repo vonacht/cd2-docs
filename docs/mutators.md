@@ -185,6 +185,24 @@ Used to detect the different stages of a Refinery mission.
 }
 ```
 
+## ByResuppliesCalled
+
+Allows specifying an array with indexes 0, 1, 2, etc, where the values at each index become valid when the number of resupplies corresponding to said index have been called.
+The most typical use is specifying a varying number of resupply costs. For example:
+
+```json 
+{
+    "Resupply": {
+        "Cost": {
+            "Mutate": "ByResuppliesCalled",
+            "Values": [40, 50, 60]
+        }
+    }
+}
+```
+
+will set up the first resupply to be 40 nitra, the second to be 50 nitra and 60 for all subsequent supplies.
+
 ## BySaboPhase
 
 Used to detect the different stages of a Sabotage mission.
@@ -206,6 +224,23 @@ Used to detect the different stages of a Sabotage mission.
 }
 ```
 
+## BySalvagePhase
+
+Used to detect the different stages of a Salvage mission. The mutator uses the `Default` value for any mission that is not Salvage. 
+
+```json 
+{
+      "Mutate":    "BySalvagePhase",
+      "Default":   "Default Value",
+      "Mules":     "Value until all mules repaired",
+      "PreUplink": "Value while mules finished but uplink not started",
+      "Uplink":    "Value during the uplink event",
+      "PreRefuel": "Value between defense events",
+      "Refuel":    "Value during the refuel event",
+      "Finished":  "Value for the remainder of the mission"
+}
+```
+
 ## Clamp
 Constrain a float (number) to fall within a range. This range is inclusive. If only a min or only a max is specified, the value will only be clamped in that direction.
  
@@ -219,6 +254,12 @@ Example:
     "Max": 100
 }
 ```
+
+## DefenseProgress
+
+This mutator tracks the progress of a defense event such as a black box, refuel or uplink. It returns a float between [0, 1] starting at 0.3.
+
+
 ## Delta
 `Delta` can be used to detect a change in some other variable or mutator, and it is often used with `Accumulate`.
 

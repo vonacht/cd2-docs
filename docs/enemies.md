@@ -200,6 +200,7 @@ Example: create an orange septic.
 
 
 Each enemy has a certain number of material slots. There are hundreds of available materials, but not all of them work when used in enemies. The best way to test and find new materials for your enemies is spawning the enemy in [Sandbox Utilities](https://mod.io/g/drg/m/sandbox-utilities) and changing them, and you will be able to see the change in real time. This procedure is explained in [this document](media/Materials-1.pdf) by @TheBrain.
+If you wish to leave a slot with the default material, both `""` and `Default` work.
 
 
 ## Resistances 
