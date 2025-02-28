@@ -5,7 +5,7 @@
 ```json
 "ED_Ice_Septic": {
   "Base": "ED_Spider_Lobber",
-  "Projectile": "PRJ_Crye_SnowBall_C",
+  "Projectile": "PRJ_Crye_SnowBall_C"
 }
 ```
 
@@ -19,6 +19,8 @@
 * The `Projectile` field can be mutated. 
 
 ## List of game projectiles
+
+See also [this spreadsheet](https://docs.google.com/spreadsheets/d/10NqPL5Z1zkU6hn4XMbxtirZBM9rf6nrCNKI3HSv6FtE/edit?gid=0#gid=0) compiled by @Carrot which adds a lot more detail to the following list, dividing the projectiles according to their categories, damage and type.
 
 | Name |
 | -------------------    | 
@@ -207,4 +209,8 @@ To make use of these you will need to have DEA installed. Comments by mod author
 | PRJ_Spider_Spitter_Stagger | |
 | PRJ_Spider_Spitter_White | |
 | PRJ_Spider_Tank_Boss | Used by Shooter_Fire | |
+
+## List of EEE projectiles 
+
+See [this resource](https://github.com/Elytras/ElytrasEnemiesExpansion/blob/main/EEE%20ReadMe.txt) maintained by @math.h, the creator of EEE. 
 

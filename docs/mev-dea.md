@@ -1,8 +1,10 @@
-# MEV and DEA
+# MEV, DEA and EEE
 
 MEV and DEA are two common mods that add enemies to the game. They are used in a few commonly played difficulties and although they are not directly related to CD2, it is handy to have a list of the new enemy descriptors they add. Some of the enemies here can be replicated with CD2 without needing an external mod with the use of custom materials and [projectiles](projectiles.md); some enemies in these mods, however, have changes in their behaviour tree which are impossible to replicate with CD2 for now. 
 
 Neither of the two mods are in mod.io and they can be found as .pak files in the Practical DRG Discord. The mods don't do anything by themselves: in order to spawn the new enemies, their descriptors have to be included in a CD2 file.
+
+A more recent mod is EEE, available in [mod.io](https://mod.io/g/drg/m/elytrasenemiesexpansion). You can see the list of EEE enemies [here](https://github.com/Elytras/ElytrasEnemiesExpansion/blob/main/EEE%20ReadMe.txt).
 
 ## MEV
 
