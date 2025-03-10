@@ -21,6 +21,7 @@ The following table shows the valid fields inside a `WaveSpawner`:
 | Field | Type | Description |
 | -- |-- |--|
 | Enabled| Bool | Whether the wave spawner is active (True) or not (False). |
+| Name | String | A description. Doesn't have any effect. |
 | Interval | Float | After the wave is enabled, a time of `Interval` seconds will pass until the first spawns appear unless `SpawnOnEnable` (see below) is True. After that the wave will repeat every `Interval` seconds unless disabled. |
 | Enemies | [List] | A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field empty. |
 | Difficulty | Float | Number of points assigned to the wave event, which will be distributed among the enemies in `Enemies` depending on their `DifficultyRating` to decide how many will spawn. |
@@ -36,6 +37,7 @@ All `WaveSpawner` fields can be mutated. The following snippet shows a popular s
 {
     "WaveSpawners": [
         {
+          "Name": "Bulk helper wave during dreads",
           "Enabled": {
             "Mutate": "IfFloat",
             "Value": {

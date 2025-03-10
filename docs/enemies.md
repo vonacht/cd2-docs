@@ -29,6 +29,8 @@ Fields inside [[]] are special submodules that can be found in the sections that
 | Name                      | Type            | Comments |
 | ------------------------- | --------------- | --------- |
 | Alert                     | Boolean         | If True, the enemy will spawn aggroed to the player. It is True by default in enemies spawned by a [wave spawner](wavespawners.md). |
+| AttackDamageMultiplier    | Float           | Multiplies an enemy's melee and projectile damage. Can be used with EnemiesNoSync. |
+| Base                      | ED              | The enemy will have the specified ED as base. Check the table in [Resources](resources.md) for the vanilla descriptors. |
 | CanPlayerStandOn          | Boolean         |  |
 | CaveLeech                 | [[CaveLeech]]   | See the `CaveLeech` module below for special Cave Leech controls. |
 | Courage                   | Float           | |
@@ -47,7 +49,12 @@ Fields inside [[]] are special submodules that can be found in the sections that
 | MEV                       | Special         | |
 | Movement                  | [[Movement]]    | See the `Movement` submodule below. |
 | NoSpawnWithin             | Float            | Removes enemies that spawn within the specified distance of the player, in cm. |
-| Projectile                | [[Projectile]]  | See [Projectiles](projectiles.md). |
+| Projectile                | [[Projectile]]    | See [Projectiles](projectiles.md). |
+| PST_CritBonusDamage       | Int               | Legacy PawnStat. |
+| PST_CritChance            | Int               | See [Projectiles](projectiles.md). |
+| PST_DamageFromPlayers     | Int               | See [Projectiles](projectiles.md). |
+| PST_ExplodeOnDeath        | Int               | See [Projectiles](projectiles.md). |
+| PST_MovementSpeed         | Int               | See [Projectiles](projectiles.md). |
 | Resistances               | [[Resistances]] | See the `Resistances` submodule below. |
 | Scale                     | Float           | |
 | Spawner                   | [[Spawner]]     | See `Spawners` below. |
@@ -61,7 +68,8 @@ Fields inside [[]] are special submodules that can be found in the sections that
 
 ### `Direct` special control 
 
-`Direct` allows to directly change enemy properties as defined in UE4. For example:
+`Direct` allows to directly change enemy properties as defined in UE4. Many properties that are not directly exposed
+by CD2 can be changed with `Direct`. For example:
 
 ```json
 "ED_Spider_ExploderTank": {

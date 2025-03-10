@@ -228,6 +228,7 @@ A special module offering customization options for Salvage missions. It contain
 | MiniMules | LegsPerMule            | Int    | 4       | Number of legs to spawn per minimule                                             |
 | MiniMules | LegDistance            | Float  | 1500    | Untested, should be distance legs spawn from the minimules                       |
 | MiniMules | Count                  | Int    | 2       | Number of minimules to spawn (or 1.5x on long Salvage)                           |
+| MiniMules | NitraToGive            | Int    | 50      | Nitra given by the mules after repairing them                                    |
 | --------- | ---------------------- | ------ | ------- | -------------------------------------------------------------------------------- |
 | Uplink    | RepairUsable           | Usable |         | Settings for holding e to activate the uplink                                    |
 | Uplink    | Scale                  | Float  | 1       | Size of the triangulation zone                                                   |

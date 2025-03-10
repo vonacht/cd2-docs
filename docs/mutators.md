@@ -128,6 +128,42 @@ Example:
     "PE": 80
  }
 ```
+
+## BySecondary
+Can be used to detect secondary objectives both on normal missions and on deep dives. The objectives have the following names:
+
+| Name |
+| ----- |
+| OBJ_2nd_Mine_Dystrum|
+|OBJ_2nd_Mine_Hollomite|
+|OBJ_2nd_KillFleas|
+|OBJ_2nd_Find_Gunkseed|
+|OBJ_2nd_Find_Fossil|
+|OBJ_2nd_Find_Ebonut|
+|OBJ_2nd_Find_BooloCap|
+|OBJ_2nd_Find_ApocaBloom|
+|OBJ_2nd_DestroyEggs|
+|OBJ_2nd_DestroyBhaBarnacles|
+|OBJ_DD_RepairMinimules|
+|OBJ_DD_Defense|
+|OBJ_DD_DeepScan|
+|OBJ_DD_Morkite|
+|OBJ_DD_Elimination_Eggs|
+|OBJ_DD_AlienEggs|
+|OBJ_DD_MorkiteWell|
+
+Example: change the Nitra multiplier depending on the secondary objective in deep dives (20 % more nitra on dreadnought and black box objectives).
+
+```json 
+{
+    "NitraMultiplier": {
+        "Mutate": "BySecondary",
+        "OBJ_DD_Elimination_Eggs": 1.2,
+        "OBJ_DD_Defense": 1.2 
+    }
+}
+```
+
 ## ByTime 
 Change a value over time. Time matches the mission clock in the escape menu in-game, including starting before players receive control of their dwarves.
 The value is determined by `InitialValue + RateOfChange * Max(0, Time - StartDelay)`.
@@ -373,6 +409,9 @@ Only add stalkers and elite guards to the pool after 240 seconds have elapsed in
 
 ## DuringPECountdown
 Returns True during the extraction phase of a PE mission. 
+
+## DwarfCount 
+Returns the number of players in the mission. 
 
 ## DwarvesAmmo
 Average percent ammo left for the team, 1 when all teammates have 100% of their ammo and 0 when all teammates are at 0% ammo. This works the same way as the 4 bars under the dwarves names in the UI.

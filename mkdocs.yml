@@ -15,6 +15,6 @@ nav:
   - (Module) WaveSpawners: wavespawners.md
   - Projectiles: projectiles.md
   - Mutators: mutators.md 
-  - MEV and DEA: mev-dea.md
+  - MEV, DEA and EEE: mev-dea.md
   - Tutorials: grouped_cooldowns.md
   - Resources: resources.md
