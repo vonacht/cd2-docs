@@ -1,4 +1,4 @@
-# Modules
+#Modules
 Modules are the top level hierarchy names for a valid CD2 JSON. The following is an alphabetized list of the current modules.
 
 ## Caps
@@ -23,20 +23,20 @@ Example:
 When the number of enemies in the map reach their cap, new enemies will be prevented from spawning and some existing enemies will despawn. The exact mechanics behind this behaviour are not completely understood. 
 
 ## Darkness
-The Darkness module offers controls related to lighting and illumination both in the Space Rig and during a mission. It has the following fields:
+The Darkness module offers controls related to lighting and illumination both in the Space Rig and during a mission. It has the following fields (descriptions provided by @noskill):
 
-| Field                 | Type  | 
-| --------------------- | ----- | 
-| FlashlightStrength    | Float |
-| PlayerIllumination    | Float |
-| FlareMax              | Int   |
-| FlareStrength         | Float |
-| FlareDuration         | Float |
-| FlareProductionTime   | Float |
-| EnvironmentalLight    | Float |
-| DisableFog            | Bool  |
-| FlareGunStrength      | Float |
-| FlareGunDuration      | Float |
+| Field                 | Type  | Default | Comment |
+| --------------------- | ----- | ------- | -------- |
+| FlashlightStrength    | Float | 1? | Headlight light strength, affects both radius and strength of the light. |
+| PlayerIllumination    | Float | 1? | Light strength in a radius around the player. Only affects strength and not radius. |
+| FlareMax              | Int   | 4  | Maximum number of flares that the player can keep.  |
+| FlareStrength         | Float | 1? | Strength of the flares, affects both radius and strength. Seems no have no effect above 3. |
+| FlareDuration         | Float | 30 | Duration of the player flares. |
+| FlareProductionTime   | Float | 12 | Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge. |
+| EnvironmentalLight    | Float | 1? | Environmental (cave) light. Affects both radius and strength. |
+| DisableFog            | Bool  | False | Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again. |
+| FlareGunStrength      | Float | 1? | Strength of Scout's flare gun flares. |
+| FlareGunDuration      | Float | Depends on flare gun stats | Duration of Scout's flare gun flares. |
 
 ## Description
 A short explanation of the difficulty.
