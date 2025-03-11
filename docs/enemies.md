@@ -50,11 +50,11 @@ Fields inside [[]] are special submodules that can be found in the sections that
 | Movement                  | [[Movement]]    | See the `Movement` submodule below. |
 | NoSpawnWithin             | Float            | Removes enemies that spawn within the specified distance of the player, in cm. |
 | Projectile                | [[Projectile]]    | See [Projectiles](projectiles.md). |
-| PST_CritBonusDamage       | Int               | Legacy PawnStat. |
-| PST_CritChance            | Int               | See [Projectiles](projectiles.md). |
-| PST_DamageFromPlayers     | Int               | See [Projectiles](projectiles.md). |
-| PST_ExplodeOnDeath        | Int               | See [Projectiles](projectiles.md). |
-| PST_MovementSpeed         | Int               | See [Projectiles](projectiles.md). |
+| PST_CritBonusDamage       | Int               | Multiplies the normal damage in case of a Critical Hit (see `PST_CritBonusDamage` below). Default of 1.2 (20 % bonus). |
+| PST_CritChance            | Int               | Chance of both bugs dealing Critical Damage to players or the other way around (no way to have only one direction). Defaults to 0 (0 % chance). |
+| PST_DamageFromPlayers     | Int               | Multiplies all damage sources considered to be from players (including things like temperature shock damage). Defaults to 1. |
+| PST_ExplodeOnDeath        | Int               | When the enemy dies it explodes as if it was a Volatile Bugs mission. |
+| PST_MovementSpeed         | Int               | Modifies enemy speed. This is a legacy pawn stat. See the `Movement` module below for a more customizable module new in CD2. |
 | Resistances               | [[Resistances]] | See the `Resistances` submodule below. |
 | Scale                     | Float           | |
 | Spawner                   | [[Spawner]]     | See `Spawners` below. |
