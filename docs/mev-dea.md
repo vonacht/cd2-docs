@@ -244,7 +244,7 @@ Descriptions provided by the mod author @donnie_danko. Updated for version 5.5.
 
 ### Dreadnought variants
 
-Do not recommend allowing these to exist at the same time as vanilla twins. will lead to weird behavior of vanilla twin. These will not heal with vanilla twins or each other, but vanilla twins will try to heal with them and will grieve them.
+The twins (Arbalest and Lacerator) variants listed here don't heal each other, which makes them good for spawning during swarms as mini bosses, usually with reduced health. However, they don't play well with the real twins (they WILL heal with them) so spawning them in Elimination missions is not recommended. 
 
 | ED name | Comments |
 | - | - |
@@ -255,8 +255,8 @@ Do not recommend allowing these to exist at the same time as vanilla twins. will
 | ED_Fauxnought | Non health gated dreadnought, slightly smaller than normal dread and can be stunned. Has slightly above Oppressor health and Large enemy health scaling. Eggshot spawns ED_Spider_Swarmer_SpawnShot. |
 | ED_Fauxnought_Tank | A Fauxnought with stun immunity, may make some additional changes to bring more in line with dread
 | ED_Lassie_Aggro | A work around for my inability to make an unlocked lacerator without messing up the stomp attack. Trades out the fire attack for burrow. |
-| ED_Lassie_Locked | A Lacerator that will not use burrow attack. Seems to really like its flamethrower attack, probably needs some tweaking.  |
-| ED_Lassie_Unlocked | A Lacerator that will use burrow attack.  |
+| ED_Lassie_Locked | A Lacerator that will not use burrow attack. Seems to really like its flamethrower attack, probably needs some tweaking. It's better to use ED_Lassie_Aggro. |
+| ED_Lassie_Unlocked | A Lacerator that will use burrow attack. It's better to use ED_Lassie_Zen. |
 | ED_Lassie_Zen | A work around for my inability to make a nonhealing/grieving lacerator without messing up the stomp attack. Will not burrow after grieve sequence is triggered by killing fauxbalester/arbalester. |
 
 ### Miscellaneous enemies

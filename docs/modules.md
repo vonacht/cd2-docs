@@ -27,7 +27,7 @@ The Darkness module offers controls related to lighting and illumination both in
 
 | Field                 | Type  | Default | Comment |
 | --------------------- | ----- | ------- | -------- |
-| FlashlightStrength    | Float | 1? | Headlight light strength, affects both radius and strength of the light. |
+| FlashlightStrength    | Float | 1? | Headlight light strength, affects both range and strength of the light. |
 | PlayerIllumination    | Float | 1? | Light strength in a radius around the player. Only affects strength and not radius. |
 | FlareMax              | Int   | 4  | Maximum number of flares that the player can keep.  |
 | FlareStrength         | Float | 1? | Strength of the flares, affects both radius and strength. Seems no have no effect above 3. |
@@ -49,36 +49,35 @@ Example:
 }
 ```
 ## DifficultySetting
-Main controls for enemy resistance, swarm and wave intervals and enemy counts. Please check [A Quick and Dirty Guide to Custom Difficulty for Deep Rock Galactic](https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0), a CD1 guide explaining most of the fields inside this module.
+Main controls for enemy resistance, swarm and wave intervals and enemy counts. The descriptions here are very summarized, please check [A Quick and Dirty Guide to Custom Difficulty for Deep Rock Galactic](https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0), a CD1 guide explaining most of the fields inside this module foe details. To see the values of these fields for the vanilla Hazards and some others, please check the [DRG Hazard Scaling](https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview) file.
  
 
 | Field | Description |
 | ------- | ----------| 
 | BaseHazard | Declares a base vanilla hazard, with values from 1 to 5. When a CD2 JSON doesn't specify a certain field, the value is taken from the `BaseHazard` specified here.|
-| ExtraLargeEnemyDamageResistance ||
-| ExtraLargeEnemyDamageResistanceB ||
-| ExtraLargeEnemyDamageResistanceC ||
-| ExtraLargeEnemyDamageResistanceD ||
-| EnemyDamageResistance ||
-| SmallEnemyDamageResistance ||
-| EnemyDamageResistance ||
-| EncounterDifficulty ||
-| StationaryDifficulty ||
-| EnemyCountModifier ||
-| EnemyWaveInterval ||
-| EnemyNormalWaveInterval ||
-| EnemyNormalWaveDifficulty ||
-| EnemyDiversity ||
-| StationaryEnemyDiversity ||
-| VeteranNormal ||
-| VeteranLarge ||
+| ExtraLargeEnemyDamageResistance | Affects the damage resistance of the three dreadnought variants. |
+| ExtraLargeEnemyDamageResistanceB | Affects the damage resistance of the Korlok Tyrant Weed. |
+| ExtraLargeEnemyDamageResistanceC | Affects the damage resistance of the OMEN Tower. |
+| ExtraLargeEnemyDamageResistanceD | Affects the damage resistance of Elite enemies. |
+| EnemyDamageResistance | Damage resistance of most larger enemies in the game: praetorians, oppressors, menaces, goo bombers, bulk detonators, etc. |
+| SmallEnemyDamageResistance | Damage resistance of everything not covered by the other resistance fields: grunts, mactera, swarmers, etc. |
+| EncounterDifficulty | Difficulty of the encounters, waves that appear when the players come within a certain distance of an unexplored cave. |
+| StationaryDifficulty | How many stationary enemies will spawn. |
+| EnemyCountModifier | A global multiplier on the number of enemies that will spawn in waves, swarms, constant pressure, extraction, among others. |
+| EnemyWaveInterval | Interval in seconds between swarms (announced). |
+| EnemyNormalWaveInterval | Interval in seconds between normal (non-announced) waves. |
+| EnemyNormalWaveDifficulty | How many enemies will spawn in a normal wave. |
+| EnemyDiversity | Determines how many enemies will spawn in a given spawn event, given an `EnemyPool`. |
+| StationaryEnemyDiversity | Enemy diversity roll for stationary enemies (everything in the `StationaryPool`). |
+| VeteranNormal | Percentage of Grunt and Mactera veterans promoting from the non-veteran variants. |
+| VeteranLarge | Percentage of Oppressors promoting to veterans from Praetorians.|
 | EnviromentalDamageModifier ||
-| PointExtractionScalar ||
-| FriendlyFireModifier || 
-| WaveStartDelayScale ||
-| SpeedModifier ||
-| AttackCooldownModifier ||
-| ProjectileSpeedModifier ||
+| PointExtractionScalar | Interval between swarms in Point Extraction, taking effect after the first swarm. The value is capped at 1 and the formula seems to be Interval = 165/ PointExtractionScalar. |
+| FriendlyFireModifier | How much friendly fire players deal to each other. | 
+| WaveStartDelayScale | Adds (or subtracts) a delay for the first swarm in a mission. The delay in seconds will be 150 · WaveStartDelayScale. The default is zero; if negative (eg. -1), a swarm will spawn directly at mission start. |
+| SpeedModifier | Global modifier affecting the speed of ground enemies. Mactera are unaffected. |
+| AttackCooldownModifier | Global modifier affecting the speed of enemy attack animations. |
+| ProjectileSpeedModifier | Global modifier affecting the speed of all projectiles. |
 | HealthRegenerationMax | Maximum health that the dwarves regenerate naturally to. |
 | ReviveHealthRatio | Health points after revive. |
 
@@ -161,6 +160,40 @@ If you don't want the difficulty to change when launching a mission from the Spa
   }
 }
 ```
+
+### Different difficulties in every stage of a Deep Dive 
+This is a common application of `NextDifficulty` allowing to mimic the increasing difficulty of the vanilla Deep Dive with whatever set of three difficulties you choose. The way to set it up is as follows: let's say that we want to play Hazard 5x2 on Stage 1, Hazard 6x2 on Stage 2 and ND on Stage 3. We will need the three files saved in Custom Difficulty, and then we would add the following to each:
+
+```json 
+{
+    "Name": "Hazard 5x2",
+    ...
+    "NextDifficulty": "Hazard 6x2",
+    ...
+}
+```
+
+
+```json 
+{
+    "Name": "Hazard 6x2",
+    ...
+    "NextDifficulty": "ND",
+    ...
+}
+```
+
+The ND file, being the one played in stage 3, doesn't need any modifications. In addition to editing the files for stage 1 and 2, you will need a "starter" file:
+
+```json
+{
+    "Name": "Dive Starter",
+    "NextDifficulty": "Hazard 5"
+}
+```
+
+This Dive Starter will be the file you will select while on the Space Rig before starting the dive, and it should point to the difficulty you want to play on the first stage.
+
 
 ## NitraMultiplier
 A special module that accepts a float and controls the amount of nitra generated in the map. It has a default of 1. The following snippet would generate twice the amount of nitra in a certain mission:

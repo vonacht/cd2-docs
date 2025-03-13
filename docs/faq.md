@@ -11,7 +11,7 @@ there is a cd1-client.pak available in PDRG that allows to do that.
 * A: Drag and drop the zip file into MINT and press install mods. You do not need to extract the pak from the zip to install.
 <br/>
 * **Q: Do clients need CD2 to play in my CD2 lobby?**
-* A: Clients only need CD2 if you use certain features. For instance, difficulties that use the Enemies module will require that all clients have CD2. If the EnemiesNoSync is used instead, clients will no longer need CD2. 
+* A: Clients only need CD2 if you use certain features. For instance, difficulties that use the Enemies module will require that all clients have CD2. If the EnemiesNoSync module is used instead, clients will no longer need CD2. 
 [On Pubbing With CD2](https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa) is a guide by @Spy detailing which CD2 features are incompatible with pubbing and is a recommended read.
 <br/>
 * **Q: Why aren't my original CD1 difficulties compatible with CD2?**
@@ -27,3 +27,7 @@ post the file in the PDRG forums asking for help in running the script or making
 <br/>
 * **Q: Is this compatible with MEV/DEA and other similar expansion mods?**
 * A: Yes, this is fully compatible with the most common enemy expansion mods!
+<br/>
+* **Q: Is CD2 compatible with Deep Dives?**
+* A: Yes, and it doesn't need any extra mods. Just select your chosen difficulty and go into the dive. There is also the possibility of choosing a different difficulty for each stage similar to the vanilla dive, please see the `NextDifficulty` section in [Modules](modules.md) to see how to do it. 
+<br/>

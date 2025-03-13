@@ -5,6 +5,7 @@
 * [Materials Guide](media/Materials-1.pdf) by @TheBrain on how to test new enemy materials in Sandbox Utilities.
 * [Vanilla projectiles compilation](https://docs.google.com/spreadsheets/d/10NqPL5Z1zkU6hn4XMbxtirZBM9rf6nrCNKI3HSv6FtE/edit?gid=0#gid=0) by @Carrot, categorizing the vanilla projectiles by category, type and damage. 
 * [On Pubbing With CD2](https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa) a guide by @Spy detailing which parts of CD2 are safe to be used when designing difficulties made for pubbing (so clients are not expected to have CD2).
+* [DRG Hazard Scaling](https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview) file, for the values of the fields in `DifficultySetting` for the vanilla Hazards and some others. 
 
 ## Enemy Descriptors
 
