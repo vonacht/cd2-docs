@@ -188,7 +188,7 @@ The ND file, being the one played in stage 3, doesn't need any modifications. In
 ```json
 {
     "Name": "Dive Starter",
-    "NextDifficulty": "Hazard 5"
+    "NextDifficulty": "Hazard 5x2"
 }
 ```
 
