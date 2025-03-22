@@ -572,6 +572,22 @@ Returns the maximum of a value.
 
 ## Min 
 Returns the minimum of a value.
+
+## Random 
+Continuously samples a float number between `Min` and `Max`, uniformly.
+
+```json
+{
+    "Resupply": {
+        "Cost": {
+            "Mutate": "Random",
+            "Min": 40, 
+            "Max": 60
+        }
+    }
+}
+```
+
 ## RandomChoice
 Given an array of choices, choose one at random. It accepts an optional second list with weights for a weighted sampling of the choices.
 
