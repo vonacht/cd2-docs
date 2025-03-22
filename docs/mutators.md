@@ -461,6 +461,40 @@ Count of enemies that have died with a specific descriptor:
 ```
 ## EnemyCooldown
 
+This mutator tracks a timer that is true after an enemy descriptor has spawned.
+
+```json
+{
+    "ED_Example": {
+        "Rarity": {
+            "Mutate": "EnemyCooldown",
+            "ED": "ED_Opp1",
+            "CooldownTime": 60,
+            "ValueDuringCooldown": 1000,
+            "DefaultValue": 1
+          }
+    }
+}
+```
+
+In the example, the mutator will be true for 60 seconds (the value of `CooldownTime`) after `ED_Example` has spawned. During this time, the value for the `Rarity` will be the value specified in `ValueDuringCooldown` and `DefaultValue` otherwise. The `ED` field can accept an array of enemies:
+
+```json
+{
+    "ED_Example": {
+        "Rarity": {
+            "Mutate": "EnemyCooldown",
+            "ED": ["ED_Opp1", "ED_Opp2", "ED_Opp3"],
+            "CooldownTime": 60,
+            "ValueDuringCooldown": 1000,
+            "DefaultValue": 1
+          }
+    }
+}
+```
+
+which will start the timer whenever one of the enemies inside the array spawns. 
+
 
 ## EnemyCount
 Count the number of enemies currently alive on the map. Optionally, this can get the count of a specific enemy descriptor.
