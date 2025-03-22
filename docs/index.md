@@ -34,3 +34,4 @@ This document serves as a reference for Custom Difficulty 2, a mod for [Deep Roc
 + 20-Feb-2025: Partial update for CD2-v12: added the `DefenseProgress` and `ByResuppliesCalled` mutators, added the `Salvage` module and the `BySalvagePhase` mutator.
 + 28-Feb-2025: Added @Carrot's projectile resource to the [Resources](resources.md) and [Projectiles](projectiles.md) tabs, added @Spy's guide to pubbing with CD2 to [Resources](resources.md) and to the FAQ, added EEE's reference to [Projectiles](projectiles.md) and to [MEV, DEA and EEE](mev-dea.md).
 + 11-Mar-2025: Update for CD2-v13: added the legacy pawn stats to [enemy controls](enemies.md), added BySecondary and DwarfCount mutators, added Darkness module descriptions, added Salvage.Minimules.NitraToGive to the Salvage module 
++ 22-Mar-2025: Update for CD2-v14: added the Dense Biozone option to the ByBiome mutator, added descriptions to Movement enemy module provided by @emctwo.

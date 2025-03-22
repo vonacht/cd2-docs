@@ -232,20 +232,22 @@ Fields for the resistances submodule. These controls can be used to define resis
 
 ## Movement
 
-| Name                          | Type                  |
-| ----------------------------- | --------------------- |
-| MaxPawnSpeed                  | Float                 |
-| StrafeSpeed                   | Float                 |
-| MinSlowdownAngle              | Float                 |
-| MaxSlowdownAngle              | Float                 |
-| MaxStrafeDistance             | Float                 |
-| AlignDirectionSpeed           | Float                 |
-| FleeSpeedBoostMultiplier      | Float                 |
-| MaxAcceleration               | Float                 |
-| MaxBrakingDeceleration        | Float                 |
-| PathfinderSize                | Currently Unsupported |
-| AlignToTargetMinRequiredAngle | Float                 |
-| PathfinderPreference          | Currently Unsupported |
+The following values are all multipliers with defaults of 1. The following descriptions are provided by @emctwo. 
+
+| Name                          | Type                  | Description |
+| ----------------------------- | --------------------- | -----------
+| MaxPawnSpeed                  | Float                 | Multiplies the maximum speed of the enemy. |
+| StrafeSpeed                   | Float                 | Multiplies enemy speed when strafing (enemy movement changes to strafe when they are close to a player). |
+| MinSlowdownAngle              | Float                 | When enemies turn they tend to slow down; this field multiplies the minimum angle for the speed change. |
+| MaxSlowdownAngle              | Float                 | When enemies turn they tend to slow down; this field multiplies the maximum angle for the speed change.| 
+| MaxStrafeDistance             | Float                 | The distance to a player where the enemy starts to strafe. |
+| AlignDirectionSpeed           | Float                 | Multiplies how quickly the enemy turns. |
+| FleeSpeedBoostMultiplier      | Float                 | Multiplies enemy speed when feared. |
+| MaxAcceleration               | Float                 | Multiplies how quickly the enemy can change speed. |
+| MaxBrakingDeceleration        | Float                 | Affects how quickly the enemy slows down, which mostly changes how far away from the player they start to slow down. |
+| PathfinderSize                | Currently Unsupported | |
+| AlignToTargetMinRequiredAngle | Float                 | The minimal angle required between the enemy's forward direction and the player position to start turning. |
+| PathfinderPreference          | Currently Unsupported | |
 
 ## CaveLeech 
 Special controls for cave leeches.

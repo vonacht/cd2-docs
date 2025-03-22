@@ -47,13 +47,14 @@ Change the value based on the mission biome. If a value isn't set for a biome it
 | ------------- |-------|------------|
 | BIOME_AzureWeald | AzureWeald |
 | BIOME_CrystalCaves | CrystalCaves | CrystallineCaverns |
+| BIOME_DenseBiozone | DenseBiozone | Biozone |
 | BIOME_FungusBogs | FungusBogs |
 | BIOME_HollowBough | HollowBough |
 | BIOME_IceCaves | IceCaves | GlacialStrata |
 | BIOME_MagmaCaves | MagmaCaves | MagmaCore |
-| BIOME_SandblastedCorridors | SandblastedCorridors | Sandblasted |
 | BIOME_RadioactiveZone | RadioactiveExclusionZone | REZ |
 | BIOME_SaltCaves | SaltCaves | SaltPits |
+| BIOME_SandblastedCorridors | SandblastedCorridors | Sandblasted |
 
 ## ByDDStage
 Change the value based on the Deep Dive stage. If a value isn't set for a stage, it will use the 'Default' value. A 'Default' must be set.
