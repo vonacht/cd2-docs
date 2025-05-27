@@ -459,6 +459,18 @@ Count of enemies that have died with a specific descriptor:
     "ED": "ED_Spider_Grunt"
 }
 ```
+
+Since CD2 v15, it is possible to specify a list of ED's and avoid having to nest addition mutators:
+
+```json
+{
+    {
+      "Mutate": "EnemiesKilled",
+      "EDs": [ "A", "B", "C" ]
+    }
+},
+```
+
 ## EnemyCooldown
 
 This mutator tracks a timer that is true after an enemy descriptor has spawned.
@@ -517,6 +529,17 @@ Count of enemies with a specific descriptor:
     "ED": "ED_Spider_Grunt"
 }
 ```
+Since CD2 v15, it is possible to specify a list of ED's and avoid having to nest addition mutators:
+
+```json
+{
+    {
+      "Mutate": "EnemyCount",
+      "EDs": [ "A", "B", "C" ]
+    }
+},
+```
+
 ## EngineerCount
 Number of engineers in the lobby. 
 ## GunnerCount
@@ -719,3 +742,106 @@ Example:
     "Resource": "Morkite"
 }
 ```
+
+## Trigger mutators
+These are a special group of mutators that can be used on boolean values, typically (but not limited to) on the `Enabled` field of a wavespawner. Please see some examples below. The fields of each trigger are specified `like this`. There are currently the following triggers:
+
+### TriggerOnce
+Triggers only on the first False -> True `In` transition, then never again. Used if something has to happen exactly once per mission. It can optionally have a `Reset` field which resets its ability to trigger.
+
+### TriggerNTimes
+Allows up to `N` False -> True `In` transitions, then blocks any further attempts. Same idea as `TriggerOnce` but for multiple events. 
+
+### TriggerSometimes
+Triggers only a percentage of times `P` when `In` goes from False -> True. As a simple example, this could be used to spawn a wave when a player goes down but only with a probability `P` of that happening. 
+
+### TriggerCooldown
+After the boolean `In` goes from True -> False, it can't go True again for `N` seconds.
+
+### TriggerFixedDuration
+Stays True for `N` seconds before switching back to False, regardless of what happens to its boolean input. It can be configured to `Reset: true` if the input transitions from False -> True during the fixed window. 
+
+### TriggerSustain 
+Extends a current True `In` state by `N` additional seconds.
+
+### TriggerDelay
+Delays the transition of the `In` boolean by `N` seconds.
+
+### TriggerOnChange
+It accepts a float input `In`. The trigger becomes momentarily true if the input float value changes. It accepts the special values `RiseOnly` and `FallOnly` to fire only on an increase or a decrease of the input value, respectively. 
+
+### Trigger examples
+
+The following is an example on how to use triggers. It spawns a small wave of exploders 15 seconds after calling a resupply, but only 30 % of the time: 
+
+```json 
+  "WaveSpawners": [
+    {
+      "Enabled": {
+        "Mutate": "TriggerSometimes",
+        "P": 0.3,
+        "In": {
+          "Mutate": "TriggerDelay",
+          "N": 15,
+          "In": {
+            "Mutate": "TriggerOnChange",
+            "In": {
+              "Mutate": "ResuppliesCalled"
+            }
+          }
+        }
+      },
+      "Enemies": [
+        "ED_Spider_Exploder"
+      ],
+      "Difficulty": 300,
+      "Interval": 20,
+      "Distance": 50,
+      "Locations": 3,
+      "SpawnOnEnable": true
+    }
+  ]
+```
+
+Following the order of the mutators:
+
++ `TriggerOnChange` detects a change in `ResuppliesCalled` and becomes momentarily True.
++ `TriggerDelay` adds a delay of 15 seconds to the `TriggerOnChange` transition.
++ Finally, `TriggerSometimes` lets the True transition pass but only 30 % of the time.
+
+ A similar example, but now the waves of exploders is sustained for 20 seconds:
+
+```json
+  "WaveSpawners": [
+    {
+      "Enabled": {
+          "Mutate": "TriggerFixedDuration",
+          "N": 20,
+          "In": {
+            "Mutate": "TriggerSometimes",
+            "P": 0.3,
+            "In": {
+              "Mutate": "TriggerDelay",
+              "N": 15,
+              "In": {
+                "Mutate": "TriggerOnChange",
+                "In": {
+                  "Mutate": "ResuppliesCalled"
+                }
+              }
+            }
+          }
+      },
+      "Enemies": [
+        "ED_Spider_Exploder"
+      ],
+      "Difficulty": 20,
+      "Interval": 1,
+      "Distance": 50,
+      "Locations": 3,
+      "SpawnOnEnable": true
+    }
+  ]
+```
+
+The chain of mutators is the same, but now a `TriggerFixedDuration` has been added on top which will grant a 20 second window for the wavespawner to be active. Since its `Interval` is set to 1, this will generate 20 spawn events in total. 

@@ -42,13 +42,14 @@ Fields inside [[]] are special submodules that can be found in the sections that
 | Grabber                   | [[Grabber]]     | See the `Grabber` module below for special Grabber controls. |
 | IsBossFight               | Boolean         | If True, the enemy will have a boss bar in the player UI similar to the vanilla dreadnoughts. The name in the bar will be the descriptor's `DisplayName`. |
 | JellyBreeder              | [[JellyBreeder]] | See the `JellyBreeder` module below for special breeder controls. |
-| Heal                      | Float           | A positive number `N` will heal the enemy `N` hps. A negative number will do `N` dps to the enemy. |
+| Heal                      | Float           | A positive number `N` will heal the enemy `N` hps. A negative number will do `N` dps to the enemy. This control has an advanced mode specified below. |
 | HealthMultiplier          | Float           | |
 | HealthRaw                 | Float           | |
 | Materials                 | [[Materials]]   | A list of UE4 materials that will be applied to different parts of the enemy. Each enemy is different with regard to how many materials will it accept and how will they be applied, so trial and error is usually needed to get the expected results. |
 | MEV                       | Special         | |
 | Movement                  | [[Movement]]    | See the `Movement` submodule below. |
 | NoSpawnWithin             | Float            | Removes enemies that spawn within the specified distance of the player, in cm. |
+| Outline                   | [[Outline]]       | Allows setting a permanent outline (as if someone had pinged) to an enemy. See below in the outline section for the options.  |
 | Projectile                | [[Projectile]]    | See [Projectiles](projectiles.md). |
 | PST_CritBonusDamage       | Int               | Multiplies the normal damage in case of a Critical Hit (see `PST_CritBonusDamage` below). Default of 1.2 (20 % bonus). |
 | PST_CritChance            | Int               | Chance of both bugs dealing Critical Damage to players or the other way around (no way to have only one direction). Defaults to 0 (0 % chance). |
@@ -65,6 +66,16 @@ Fields inside [[]] are special submodules that can be found in the sections that
 | TimeDilation              | Float           | Speeds up the enemy's attack and movement. Please note that time-dilating enemies can be a source of desync. |
 | UsesBiomeVariants         | Boolean           | Enables/disables the biome variants of enemies (eg. Frost Praetorian in Glacial Strata). |
 | WeakpointHP               | Float           | |
+
+### `Heal` advanced mode
+`Heal` can accept the following advanced settings:
+
++ `InitialRate`: sets the initial healing if positive or bleed if negative. 
++ `FinalRate`: sets the value that will be used after `SwitchAfter` time has passed.
++ `SwitchAfter`: the time at which the `FinalRate` will be used. Starts counting on enemy spawn. 
+
+### `Outline` special control 
+This module allows to give a permanent outline to an enemy, as if someone had pinged it. It is usually used to mark dangerous enemies like breeders or ranged threats so you can see them through walls. It accepts two fields: `Enable`, which accepts a boolean, and `Type`, which accepts one of the following: `Enemy` (red outline, default), `Friendly`, `Neutral` and `Item`.  
 
 ### `Direct` special control 
 
