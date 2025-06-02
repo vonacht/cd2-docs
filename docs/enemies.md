@@ -1,8 +1,10 @@
 # Enemies / EnemiesNoSync
-This module contains the enemy descriptors. The difficulty can only contain either the `Enemies` module or `EnemiesNoSync`: 
+This module contains the enemy descriptors. The name of the module can be either `Enemies` or `EnemiesNoSync`, but never both at the same time. The choice of which to use depends on if you want your difficulty to be pubbable, that is, to be played with players that do not have CD2 installed:
 
-* `Enemies` can replicate some enemy characteristics to players, such as materials and scale, but in exchange it forces the clients to use CD2 or they will suffer a disconnect upon mission start. 
-* `EnemiesNoSync` doesn't do replication to clients. A difficulty with `EnemiesNoSync` is compatible with all clients, regardless of whether they use CD1, CD2 or nothing at all. 
+* Some CD2 features require being replicated to the clients, such as the `Scale` enemy control or the customization of enemy looks (materials). `Enemies` can replicate these characteristics to players, but in exchange it will force the clients to use CD2 or they will suffer a disconnect upon mission start. 
+* `EnemiesNoSync` doesn't do replication to clients. A difficulty with `EnemiesNoSync` is compatible with all clients, regardless of whether they use CD1, CD2 or nothing at all. When you use `EnemiesNoSync` you are implicitly stating that you didn't use any features that require replication.
+
+To see which features require the `Enemies` module, please check the following guide by @Spy: [On Pubbing With CD2](https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa).
 
 ## Descriptor controls 
 
