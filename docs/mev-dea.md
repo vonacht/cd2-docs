@@ -1,12 +1,14 @@
 # MEV, DEA and EEE
 
-MEV and DEA are two common mods that add enemies to the game. They are used in a few commonly played difficulties and although they are not directly related to CD2, it is handy to have a list of the new enemy descriptors they add. Some of the enemies here can be replicated with CD2 without needing an external mod with the use of custom materials and [projectiles](projectiles.md); some enemies in these mods, however, have changes in their behaviour tree which are impossible to replicate with CD2 for now. 
+MEV, DEA and EEE are three common mods that add enemies to the game. They are used in a few commonly played difficulties and although they are not directly related to CD2, it is handy to have a list of the new enemy descriptors they add. Some of the enemies they add can be replicated with CD2 without needing an external mod with the use of custom materials and [projectiles](projectiles.md); some enemies in these mods, however, have changes in their behaviour tree which are impossible to replicate with CD2 for now. 
 
-Neither of the two mods are in mod.io and they can be found as .pak files in the Practical DRG Discord. The mods don't do anything by themselves: in order to spawn the new enemies, their descriptors have to be included in a CD2 file.
++ MEV is not in mod.io and can be found as a .pak in the Pracical DRG discord. There is no official documentation for the MEV enemies, so this page contains the list below.
++ DEA is available in [mod.io](https://mod.io/g/drg/m/donnies-enemy-addon-cd2-version#description) together with a [document](https://docs.google.com/document/d/12pFMGVzQYR2vQzEhvCqaLcBBsOfjhkpxvEaIOJB8HHw/edit?tab=t.0) with the list of enemies it adds. 
++ A more recent mod is EEE, available in [mod.io](https://mod.io/g/drg/m/elytrasenemiesexpansion). You can see the list of EEE enemies [here](https://github.com/Elytras/ElytrasEnemiesExpansion/blob/main/EEE%20ReadMe.txt).
 
-A more recent mod is EEE, available in [mod.io](https://mod.io/g/drg/m/elytrasenemiesexpansion). You can see the list of EEE enemies [here](https://github.com/Elytras/ElytrasEnemiesExpansion/blob/main/EEE%20ReadMe.txt).
+These enemy expansion mods don't do anything by themselves: in order to spawn the new enemies their descriptors have to be explicitly included in a CD2 file, so you can leave them enabled at all times while you are playing.
 
-## MEV
+## MEV enemies
 
 Descriptions provided by mod author @yinny. Updated for MEV 5.4.
 
@@ -181,89 +183,3 @@ Can be used as new stationary enemies.
 | ED_PatrolBot_missile | A special patrol bot with a different attack pattern. |
 | ED_PatrolBot_rocketbeam | A special patrol bot with a different attack pattern. |
 
-## DEA 
-
-Descriptions provided by the mod author @donnie_danko. Updated for version 5.5.
-
-### Grunts and spitter variants
-
-| ED name | Comments |
-| ------- | -------- |
-| ED_Spider_Glasher  | A hybrid of the Guard and Slasher, best of both worlds. Includes ice and radiation biome variants. |
-| ED_Spider_Gritter_Ceiling | Ceiling pathfinding preference. |
-| ED_Spider_Gritter_Wall | Lower health than grooter, with web spitter attack instead of acid. |
-| ED_Spider_Grooter  | A grunt/acid lobber hybrid which will lob ground acid spitter PRJs in a tri jaw like pattern. Mostly a proof of concept hybrid ranged/melee enemy. | 
-| ED_Spider_Grooter_Ceiling | Grooter with ceiling pathfinding preference, and normal acid spitter attack. |
-| ED_Spider_Grooter_Wall | Hybrid melee/range grunt with wall pathfinding preference, same triple acid lob attacka as grooter. |
-| ED_Spider_Grunt_Guardian | Glasher with a burrow attack tacked on, does 20% more damage than its slash. |
-| ED_Spider_Shooter_Bouncer  | A ground acid spitter which lobs RJ250 at you. Should do half the damage of a typical spitter prj, within 2m max damage radius. | 
-| ED_Spider_Shooter_Fire  | An acid spitter variant which fires OG dread fireball, slightly less aggressive behavior. | 
-| ED_Spider_Shooter_Ice  | An acid spitter variant which applies cold damage on hit, rather than the acid STE. | 
-| ED_Spider_Spitter_Cyan  | A web spitter variant which applies the stalker shield disruption effect. |
-| ED_Spider_Spitter_Pink  | A web spitter variant which applies a marked-for-death status effect. |
-| ED_Spider_Spitter_Stagger  | A web spitter variant which applies the slasher stun effect. |
-| ED_Spider_Spitter_White  | A web spitter variant which does not apply any status effect. | 
-
-### Mactera variants
-
-| ED name | Comments |
-| - | - |
-| ED_Acid_Bomber | Bomber variant which drops goo with properties of both sentinel goo and septic spreader goo. Its projectile attack will also leave goo behind when dodged, does a 50/50 split of poison/explosive damage rather than explosive, and applies the acid spitter STE if it hits you. |
-| ED_Arbabomber | Firebomber with projectile attack replaced with arbalest mines, no visual difference from firebomber. |
-| ED_Bomber_Exploder | Firebomber whose projectile attack spawns exploders, no visual difference from firebomber. spawned exploders use ED_Spider_Exploder_SpawnShot . |
-| ED_Bomber_NoShot | Goo bomber with no projectile attack. |
-| ED_Enola_Gay | Goo bomber that shoots nukes. |
-| ED_Mactera_IPJaw | Instant penta jaw. |
-| ED_Mactera_InstaJaw | Tri jaw that shoots all its projectiles at once. Currently not visually distinct from tri-jaw so I would recommend using CD2 to change materials. |
-| ED_Mactera_Pentajaw | Mactera trijaw that shoots 5 projectiles instead of 3. |
-| ED_Mactera_RadialJaw | Mactera that shoots in a circular pattern. | 
-| ED_Mactera_Shooter_Breach and ED_Mactera_Brendle | They shoot a faster version of OMEN linecutter. | 
-| ED_Mactera_Trundle  | A hybrid of the tri-jaw and brundle. I suggest using CD2 to change its materials if you use it. |  
-| ED_Parabomber | Drops spawn eggs and fires an egg which applies phero STE. Greatly reduced drop rate compared to typical goober and each spawn egg spawns 1*enemy count modifier of ED_Spider_Swarmer_SpawnShot. |
-
-### Menace variants
-
-| ED name | Comments |
-| ------- | -------- |
-| ED_Spider_Fanatic  | A menace variant which uses the arbalest fireball fan attack, rather than normal menace attack. Long delay between attacks, and fires 5 times before reburrowing.  | 
-| ED_Spider_FanaticEX | Original pre nerf version of Fanatic, with normal menace AI |
-| ED_Spider_ShotgunMenace  | Similar to the Fanatic, but fires 9 fireballs in a grid pattern, rather than 5 in a fan. | 
-| ED_Spider_ShotgunMenaceEX | Same for the ShotgunMenace. |
-
-### Spawner enemies
-
-| ED name | Comments |
-| - | - |
-| ED_ShootingPlant_Spawner | Fires spawn egg which spawns 6*enemy count modifier of ED_Spider_Swarmer_SpawnShot. |
-| ED_ShootingPlant_SpawnerEX | Same as above but also applies phero STE. |
-| ED_ShootingPlant_Spawner_Boomer | Fires spawn egg which spawns 6*enemy count modifier of ED_Spider_Exploder_SpawnShot. |
-| ED_Spider_Shooter_Spawner  | A ground acid spitter which lobs dreadnaught swarmer eggs which spawn 2*enemy count modifier of ED_Spider_Swarmer_SpawnShot. | 
-| ED_Spider_Shooter_SpawnerEX | Same as above but spawns 6*enemy count modifier. |
-| ED_Spider_Slobber  | A septic spreader variant which lobs deadnaught swarmer eggs which spawn 2*enemy count modifier of ED_Spider_Swarmer_SpawnShot. | 
-| ED_Spider_SlobberEX | Same as above but spawns 6*enemy count modifier. |
-
-### Dreadnought variants
-
-The twins (Arbalest and Lacerator) variants listed here don't heal each other, which makes them good for spawning during swarms as mini bosses, usually with reduced health. However, they don't play well with the real twins (they WILL heal with them) so spawning them in Elimination missions is not recommended. 
-
-| ED name | Comments |
-| - | - |
-| ED_Altnought and _Tank variant | Fauxnought with slightly altered appearance and different moveset. Uses the oppressor slam instead of dread, a 3 fireball attack, and a burrow attack instead of dread fireball and swarmer egg attacks. |
-| ED_Banshee | Arbalest variant that only uses grieve attack. |
-| ED_Fauxbalester | Arbalester that will use both attacks. |
-| ED_Fauxbalester_Locked | Arbalester that will only use mines. Technically behaves as a post heal Arbalest, but just uses mines in place of fan attack. |
-| ED_Fauxnought | Non health gated dreadnought, slightly smaller than normal dread and can be stunned. Has slightly above Oppressor health and Large enemy health scaling. Eggshot spawns ED_Spider_Swarmer_SpawnShot. |
-| ED_Fauxnought_Tank | A Fauxnought with stun immunity, may make some additional changes to bring more in line with dread
-| ED_Lassie_Aggro | A work around for my inability to make an unlocked lacerator without messing up the stomp attack. Trades out the fire attack for burrow. |
-| ED_Lassie_Locked | A Lacerator that will not use burrow attack. Seems to really like its flamethrower attack, probably needs some tweaking. It's better to use ED_Lassie_Aggro. |
-| ED_Lassie_Unlocked | A Lacerator that will use burrow attack. It's better to use ED_Lassie_Zen. |
-| ED_Lassie_Zen | A work around for my inability to make a nonhealing/grieving lacerator without messing up the stomp attack. Will not burrow after grieve sequence is triggered by killing fauxbalester/arbalester. |
-
-### Miscellaneous enemies
-
-| ED name | Comments |
-| - | - |
-| ED_Drone_Breeder | A breeder which drops homing drones (from OMEN) instead of eggs. |
-| ED_Sniper_Turret_Slow | Sniper turret with 2/3rds health and 50% projectile speed, from 10x spitter projectile speed down to 5x. |
-| ED_StabberVine | Stabber vines to be used as stationary enemies, might have weird behaviours. |
-| ED_SuckingPlant | An unused sucking plant. Seems to be pretty buggy with the potential to give you a permanent low grav state, might try to fix it at some point. |
