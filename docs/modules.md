@@ -420,7 +420,7 @@ Example: the cost is 45, but after the 6th resupply it drops to 40.
 ```
 
 ## Warnings
-The `Warnings` module can be used to ban mission anomalies. It accepts a single `Banned` field which is one or more from the following table:
+The `Warnings` module can be used to ban mission anomalies. It accepts a single `Banned` field which is one or more from the table below. **Please note that banning anomalies that effect resource generation such as Mineral Mania or Gold Rush will cause clients without CD2 to have mineral desync and they will not be able to get nitra.** 
 
 | CD2 name | In-game name |
 | -------- | ------------ |
