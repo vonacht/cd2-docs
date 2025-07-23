@@ -120,6 +120,8 @@ by CD2 can be changed with `Direct`. For example:
 }
 ```
 
+In the [Direct](direct.md) page you can find a non-exhaustive but fairly complete compilation of all the known direct controls.
+
 ### Elite variants for all enemies
 
 Setting `Elite` to true or to some float number will only work directly for those enemies that have a vanilla elite variant: guards, grabbers, praetorians, bulks, menaces and trijaws. For the rest of the enemies, an elite base must be specified by setting `ForceEliteBase` to some existing ED that has an elite variant. As an example, the following snippet creates an elite septic spreader, which won't work without the `ForceEliteBase`:
@@ -169,7 +171,7 @@ With these settings, Grunts will promote to acid and web spitters with a 20 % ch
      "CustomVeterans": {
         "ED_Spider_Grunt": 0.8,
         "ED_Spider_Shooter": 0.1,
-        "ED_Spider_Spitter": 0.1
+       | -------- | ------- | "ED_Spider_Spitter": 0.1
       }
     }
 ```

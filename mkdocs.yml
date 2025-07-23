@@ -12,6 +12,7 @@ nav:
   - The Basics of CD2: basics.md
   - Modules: modules.md 
   - (Module) Enemies / EnemiesNoSync: enemies.md 
+  - (Module) Direct: direct.md 
   - (Module) WaveSpawners: wavespawners.md
   - Projectiles: projectiles.md
   - Mutators: mutators.md 
