@@ -39,3 +39,4 @@ This document serves as a reference for Custom Difficulty 2, a mod for [Deep Roc
 + 25-May-2025: Update for CD2-v15: added the `Diversity` option to the [wavespawner](wavespawners.md) section, added the new `Trigger` mutators to the [mutators](mutators.md) section, added the `Heal` advanced controls and the new `Outline` control to [enemies](enemies.md).
 + 2-Jun-2025: Clarified the section about the differences between `Enemies` and `EnemiesNoSync` in [Enemies](enemies.md); removed the DEA enemy list from [MEV, DEA and EEE](mev-dea.md) and added a link to the mod in mod.io and to the official list.
 + 23-Jul-2025: Added the [Direct](direct.md) page.
++ 15-Aug-2025: Added the `Usable` table in the `Salvage` module in Modules and some examples. 

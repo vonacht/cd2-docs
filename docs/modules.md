@@ -293,7 +293,70 @@ Example: a salvage where each mule spawns 20 legs and requires 15 to be repaired
 }
 ```
 
+Another example: the number of legs is randomized every mission.
+
+```json 
+{
+    "Salvage": {
+        "MiniMules": {
+            "LegsRequired": {
+                "Mutate": "RandomChoice",
+                "Choices": [3, 4, 5, 6, 7]
+            }
+            "LegsPerMule": 12
+        }
+    }
+}
+```
+
 Please see the `BySalvagePhase` [mutator](mutators.md) for values that need to change during different phases of the mission. 
+
+### `Usable` fields
+
+Some of the fields in the table above are marked as `Usable`. These affect how the E key interactions work in some instances such as mule repairing. They accept the following fields:
+
+| Field             | Type    | Description |
+| ----------------- | ------- | ----------- |
+| CoopUse           | Boolean | TODO        |
+| CoopUseMultiplier | Float   | Increases or decreases the speed boost granted when multiple players are interacting. Defaults to 1. |
+| Priority          | Int     | Sets up the priority of the E actions.        |
+| ResetOnFail       | Boolean | TODO        |
+| UseText           | String  | TODO        |
+| UseCooldown       | Float   | Cooldown before interaction can happen again. |
+| UseDuration       | Float   | Duration of the E interaction. |
+
+Some examples of use. The following snippet makes the uplink repair faster than normal when more than 1 player is interacting:
+
+```json
+{
+    "Salvage": {
+        "Uplink": {
+            "RepairUsable": {
+                "CoopUseMultiplier": 5
+            }
+        }
+    }
+}
+```
+
+The following snippet changes the duration of the mule repair based on how many players are interacting, and buffs the speed boost of multiple players:
+
+```json 
+{
+    "Salvage": {
+        "MiniMules": {
+            "RepairUsable": {
+                "UseDuration": {
+                    "Mutate": "ByPlayerCount",
+                    "Values": [10, 20, 30, 40]
+                },
+                "CoopUseMultiplier": 5
+            }
+        }
+    }
+}
+```
+
 
 ## SpecialEncounters
 This module controls the chance of some random events such as the Korlok, Bet-C, etc. Please note that this module is not 100 % functional as some of the encounters depend on the seasons system which CD2 cannot control for now. 
