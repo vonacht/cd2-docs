@@ -394,7 +394,40 @@ Becomes true whenever there is one of the following descriptors active on the ma
 ## DuringDrillevator
 Becomes true during the elevator phase in a Deep Scan mission. 
 ## DuringEggAmbush
-Returns True during a non-announced wave after pulling an egg in Egg Hunts. 
+Returns True during a non-announced wave after pulling an egg in Egg Hunts. As an example of use, the following snippet increases the `EnemyCountModifier` only during Egg waves, to make them more challenging. The `StartingAt` and `StoppingAfter` tries to make the increase affect only the current egg wave. 
+
+```json 
+{
+"DifficultySetting":
+    {
+    "EnemyCountModifier": {
+          "Mutate": "Multiply",
+          "A": {
+            "Mutate": "ByPlayerCount",
+            "Values": [
+              1.84,
+              2,
+              2.32,
+              2.8
+            ]
+          },
+          "B": {
+              "Mutate": "If",
+              "Condition": {
+                "Mutate": "DuringEggAmbush",
+                "StartingAt": 5,
+                "StoppingAfter": 10
+              },
+              "Then": 4,
+              "Else": 1
+            }
+        }
+    }
+} 
+
+```
+
+
 ## DuringEncounters
 Becomes true when Encounters are being placed in the map, that is, during mission generation. One of its uses it to change descriptor properties depending on whether they are part of an encounter or not:
 
