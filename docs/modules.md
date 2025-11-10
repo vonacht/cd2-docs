@@ -86,6 +86,8 @@ Offers some controls related to the players.
 
 | Field | Description |
 | ------ | ---------|
+| FallDamageModifier | Default: 0.175 |
+| FallDamageStartVelocity | Default: 1000 |
 | RegenHealthPerSecond | |
 | RegenDelayAfterDamage | |
 | Scale | Player size. |
@@ -117,6 +119,68 @@ A field accepting an int specifying the maximum number of players allowed in the
 {
     "MaxPlayers": 16
 }
+```
+
+## Messages 
+A module that allows CD2 to send messages to chat in response to events happening during the mission. It has The following fields:
+
+| Field        | Type    | Default | Description                                                 |
+| ------------ | ------- | ------- | ----------------------------------------------------------- |
+| Send         | Boolean | False   | Send chat message when true                                 |
+| SendOnChange | Boolean | False   | Send chat message when another value (e.g. message) changes |
+| Type         | String  | Game    | Options:  Game, Normal, Delux, Developer, Streamer, Modder  |
+| Sender       | String  | CD2     | Name of the Sender                                          |
+| Message      | String  |         |                                                             |
+
+Examples:
+
+The following snippet sends a message on chat when the next resupply is available.
+
+```json 
+...,
+"Messages": [
+    {
+      "Message": "!!! Resupply Available !!!",
+      "Send": {
+        "Mutate": "IfFloat",
+        "Value": {
+          "Mutate": "DepositedResource",
+          "Resource": "Nitra"
+        },
+        ">=": 60,
+        "Then": true,
+        "Else": false
+      }
+    }
+],
+...
+```
+
+The following snippet sends a message on chat when a player dies.
+
+```json 
+...,
+"Messages": [
+    {
+      "Send": {
+        "Mutate": "TriggerOnChange",
+        "RiseOnly": true,
+        "Value": {
+          "Mutate": "DwarvesDown"
+        }
+      },
+      "Type": "Delux",
+      "Sender": "Karl",
+      "Message": {
+        "Mutate": "RandomChoice",
+        "Choices": [
+          "Stop Dying",
+          "Skill Issue"
+        ]
+      }
+    }
+],
+...
 ```
 
 ## Name
@@ -357,6 +421,27 @@ The following snippet changes the duration of the mule repair based on how many 
 }
 ```
 
+## SoundCues
+A module that allows CD2 to play a sound in response to events happening during the mission. It has two fields: a boolean `Play` which accepts mutators and a `Cue` which accepts the path to the sound you want to play. As an example, the following snippet plays a laughing sound when a player dies:
+
+```json
+...,
+ "SoundCues": [
+    {
+      "Play": {
+        "Mutate": "TriggerOnChange",
+        "RiseOnly": true,
+        "Value": {
+          "Mutate": "DwarvesDown"
+        }
+      },
+      "Cue": "/Game/Audio/SFX/Environment/Pumpkin/Pumpkin_EvilLaughter_01_Cue.Pumpkin_EvilLaughter_01_Cue"
+    }
+  ],
+...
+```
+
+The game has a lot of available sounds, but to play them outside the game you will need the game files and either Unreal Engine 4.27 or FModel.
 
 ## SpecialEncounters
 This module controls the chance of some random events such as the Korlok, Bet-C, etc. Please note that this module is not 100 % functional as some of the encounters depend on the seasons system which CD2 cannot control for now. 

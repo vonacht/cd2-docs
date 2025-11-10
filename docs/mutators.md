@@ -292,6 +292,41 @@ Example:
 }
 ```
 
+## Countdown 
+
+A mutator that will count down from `Start` to `Stop`. It is usually used together with the `Int2String` mutator and the messages module to print messages on chat. It also has a `Default` value which is used when the countdown is not enabled. A boolean, mutable `Enable` field starts the countdown:
+
+```json
+"Messages": [
+    {
+      "SendOnChange": true,
+      "Type": "Developer",
+      "Sender": "My Difficulty",
+      "Message": {
+        "Mutate": "Join",
+        "Values": [
+          "Something in...",
+          {
+            "Mutate": "Int2String",
+            "Value": {
+              "Mutate": "Countdown",
+              "Start": 16,
+              "Enable": true
+            }
+          }
+        ]
+      }
+    }
+]
+```
+
+<figure markdown="span">
+  ![CountdownMutator](pictures/countdown-mutator.png)
+  <figcaption>Chat output resulting from the snippet above.</figcaption>
+</figure>
+
+If you want to trigger an event after a certain amount of time after something happens consider using the `TriggerDelay` and the trigger mutators instead of `Countdown`, at the bottom of the page. 
+
 ## DefenseProgress
 
 This mutator tracks the progress of a defense event such as a black box, refuel or uplink. It returns a float between [0, 1] starting at 0.3.
@@ -471,6 +506,39 @@ Since CD2 v15, it is possible to specify a list of ED's and avoid having to nest
 },
 ```
 
+## EnemiesRecentlySpawned
+
+This mutator tracks enemies that spawned in the last `Seconds` seconds. You can track a single enemy descriptor with `ED` or multiple descriptors with `EDs`: in the last case, the mutator will return the sum of all spawned enemies that match the descriptors. If empty, the mutator will track all enemies. 
+
+Example: returns how many enemies spawned in the last 60 seconds.
+
+```json 
+{  
+    "Mutate": "EnemiesRecentlySpawned",  
+    "Seconds": 60  
+}
+```
+
+Example: return how many exploders spawned in the last 60 seconds.
+
+```json 
+{  
+    "Mutate": "EnemiesRecentlySpawned",  
+    "Seconds": 60,
+    "ED": "ED_Spider_Exploder"
+}
+```
+
+Example: return how many exploders, grunts and slashers spawned in the last 60 seconds.
+
+```json 
+{  
+    "Mutate": "EnemiesRecentlySpawned",  
+    "Seconds": 60,
+    "EDs": ["ED_Spider_Grunt", "ED_Spider_Grunt_Guard", "ED_Spider_Grunt_Attacker"]
+}
+```
+
 ## EnemyCooldown
 
 This mutator tracks a timer that is true after an enemy descriptor has spawned.
@@ -542,8 +610,14 @@ Since CD2 v15, it is possible to specify a list of ED's and avoid having to nest
 
 ## EngineerCount
 Number of engineers in the lobby. 
+
+## Float2String
+
+Converts an float to a string value so it can be used in the `Messages` [module](modules.md). For conversion from integers to strings, consider `Int2String` above.
+
 ## GunnerCount
 Number of gunners in the lobby.
+
 ## HeldResource
 For a resource, the sum of that resource in players' inventories, not deposited.
  
@@ -589,6 +663,14 @@ Example: as long as the team has called less than 2 resupplies the value is 40. 
 ```
 ## IfOnSpaceRig
 Returns True on the Space Rig. 
+
+## Int2String
+
+Converts an integer to a string value so it can be used in the `Messages` [module](modules.md). For conversion from floats to strings, consider `Float2String` above.
+
+## Join 
+
+Joins two strings. Can be used together with `Int2String` and `Float2String` to pass integer and float outputs from mutators into the messages module. To see an example, check the `Countdown` module above.
 
 ## Max 
 Returns the maximum of a value.

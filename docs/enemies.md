@@ -171,7 +171,7 @@ With these settings, Grunts will promote to acid and web spitters with a 20 % ch
      "CustomVeterans": {
         "ED_Spider_Grunt": 0.8,
         "ED_Spider_Shooter": 0.1,
-       | -------- | ------- | "ED_Spider_Spitter": 0.1
+        "ED_Spider_Spitter": 0.1
       }
     }
 ```

@@ -23,7 +23,7 @@ The following table shows the valid fields inside a `WaveSpawner`:
 | Enabled| Bool | Whether the wave spawner is active (true) or not (false). |
 | Name | String | A description. Doesn't have any effect. |
 | Interval | Float | After the wave is enabled, a time of `Interval` seconds will pass until the first spawns appear unless `SpawnOnEnable` (see below) is true. After that the wave will repeat every `Interval` seconds unless disabled. |
-| Enemies | [List] | A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field empty. |
+| Enemies | [List] | A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field out. A blank field ("Enemies: []") will spawn zero enemies. |
 | Difficulty | Float | Number of points assigned to the wave event, which will be distributed among the enemies in `Enemies` depending on their `DifficultyRating` to decide how many will spawn. |
 | Distance | Float | Distance where the enemies will spawn relative to the player. |
 | Diversity | Int | If the `Enemies` field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner. |
