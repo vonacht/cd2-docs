@@ -703,7 +703,32 @@ Converts an integer to a string value so it can be used in the `Messages` [modul
 
 ## Join 
 
-Joins two strings. Can be used together with `Int2String` and `Float2String` to pass integer and float outputs from mutators into the messages module. To see an example, check the `Countdown` module above.
+Joins two strings. Can be used together with `Int2String` and `Float2String` to pass integer and float outputs from mutators into the `Messages` module. It accepts a `Values` array and a separator `Sep`. The following example shows a randomized welcome message 15 seconds into the mission:
+```json 
+...,
+"Messages": [
+    {
+        "Send": {
+            "Mutate": "DuringMission",
+            "StartingAt": 15
+        },
+        "Message": {
+            "Mutate": "Join",
+            "Values": [
+                        "Welcome to my difficulty! ",
+                        {
+                            "Mutate": "RandomChoice",
+                            "Choices": ["Enjoy your stay.", "Thanks for playing"]
+                        }
+                    ]
+        },
+        "Sender": "CD2",
+        "Type": "Developer"
+    }
+],
+```
+
+To see a more complex, check the `Countdown` mutator above.
 
 ## Max 
 Returns the maximum of a value.

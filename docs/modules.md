@@ -134,7 +134,7 @@ A module that allows CD2 to send messages to chat in response to events happenin
 
 Examples:
 
-The following snippet sends a message on chat when the next resupply is available.
+In a difficulty with 60 nitra resupplies, the following snippet sends a message on chat when the next resupply is available:
 
 ```json 
 ...,
@@ -181,6 +181,49 @@ The following snippet sends a message on chat when a player dies.
     }
 ],
 ...
+```
+
+The following snippet sends a welcome message 15 seconds after mission start:
+
+```json 
+...,
+"Messages": [
+    {
+        "Send": {
+            "Mutate": "DuringMission",
+            "StartingAt": 15
+        },
+        "Message": "Welcome to my difficulty! Enjoy your stay."
+        "Sender": "CD2",
+        "Type": "Developer"
+    }
+],
+```
+
+It's possible to use the `Join` mutator to assemble strings with mutators and global variables. See the following example, where we give some randomization to the previous welcome message:
+
+```json 
+...,
+"Messages": [
+    {
+        "Send": {
+            "Mutate": "DuringMission",
+            "StartingAt": 15
+        },
+        "Message": {
+            "Mutate": "Join",
+            "Values": [
+                        "Welcome to my difficulty! ",
+                        {
+                            "Mutate": "RandomChoice",
+                            "Choices": ["Enjoy your stay.", "Thanks for playing"]
+                        }
+                    ]
+        },
+        "Sender": "CD2",
+        "Type": "Developer"
+    }
+],
 ```
 
 ## Name
