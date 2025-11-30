@@ -610,6 +610,107 @@ Example: the cost is 45, but after the 6th resupply it drops to 40.
 }
 ```
 
+## Vars 
+A module to store global variables, which allow communication between modules. `Vars` is structured as a dictionary of names and values with the following fields:
+
++ `Type`: the variable type. Can be one of the following: `Boolean`, `String`, `Float` or `Strings`, the latter used for arrays of `String`.
++ `Watch`: a boolean which will show the variable's value in the UI for debugging. 
++ `Value`: the variable's value, which can be mutated.
+
+A variable defined in `Vars` can be later used in any place which accepts a value of the same type by using `{"Var": "MyVariable"}`. Variables are all updated at once so they will always be consistent across modules, but the implementation can cause up to 500 ms of delay between the variable state and the true game state.
+
+Example of variable definitions:
+
+```json 
+...,
+"Vars": {
+    "Debug": {
+      "Type": "Boolean",
+      "Value": false
+    },
+    "MuleDistanceToDroppod": {
+      "Type": "Float",
+      "Value": { "Mutate": "MuleDistanceToDroppod" },
+      "Watch": { "Var": "Debug" }
+    },
+    "PressureDifficulty": {
+      "Type": "String",
+      "Value": "Medium"
+    },
+    "EaseOffOnDowns": {
+      "Type": "Boolean",
+      "Value": true
+    },
+    "EDs": {
+      "Type": "Strings",
+      "Value": ["ED_1", "ED_2", "ED_3"]
+    },
+    "SecondaryUnfinishedPunishment": {
+      "Type": "Float",
+      "Value": {
+        "Mutate": "LockFloat",
+        "Lock": { "Mutate": "SecondaryFinished" },
+        "Value": { "Mutate": "ByTime", "RateOfChange": 0.01 }
+      }
+    }
+},
+...,
+```
+
+The following snippet allows the user to have a toggle for adding or removing stingtails in a difficulty:
+
+```json 
+...,
+"Vars": {
+    "Stingtails": {
+        "Type": "Boolean",
+        "Value": true 
+    }
+},
+"Pools": {
+    "EnemyPool": {
+        "Remove": [
+            {
+                "Mutate": "If",
+                "Condition": {"Var": "Stingtails"},
+                "Then": [],
+                "Else": "ED_Spider_Stinger"
+            }
+        ]
+    }
+}
+...
+```
+
+The following snippet allows the user to select an easy or a hard version of the difficulty by using a variable for the `EnemyCountModifier` and the `Select` mutator:
+
+```json
+...,
+"Vars": {
+    "Pressure": {
+        "Type": "String",
+        "Value": "Easy"
+    }
+},
+"DifficultySetting": {
+    "EnemyCountModifier": {
+        "Mutate": "Multiply",
+        "BaseValues": {
+            "Mutate": "ByPlayerCount",
+            "Values": [1.9, 2.1, 2.7, 3.3]
+        },
+        "Multiplier": {
+            "Mutate": "Select",
+            "Select": "Pressure"
+            "Default": 1,
+            "Easy": 1, 
+            "Hard": 1.3 
+        }
+    }
+},
+...
+```
+
 ## Warnings
 The `Warnings` module can be used to ban mission anomalies. It accepts a single `Banned` field which is one or more from the table below. **Please note that banning anomalies that affect resource generation such as Mineral Mania or Gold Rush will cause clients without CD2 to have mineral desync and they will not be able to get nitra.** 
 
