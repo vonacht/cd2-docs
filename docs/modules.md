@@ -701,7 +701,7 @@ The following snippet allows the user to select an easy or a hard version of the
         },
         "Multiplier": {
             "Mutate": "Select",
-            "Select": "Pressure"
+            "Select": {"Var": "Pressure"}
             "Default": 1,
             "Easy": 1, 
             "Hard": 1.3 

@@ -41,3 +41,4 @@ This document serves as a reference for Custom Difficulty 2, a mod for [Deep Roc
 + 23-Jul-2025: Added the [Direct](direct.md) page.
 + 15-Aug-2025: Added the `Usable` table in the `Salvage` module in Modules and some examples.
 + 11-Nov-2025: Update for CD2-v16: added the `Countdown`, `EnemiesRecentlySpawned`, `Int2String`, `Float2String` and the `Join` mutators; added the `Messages` and `SoundCues` module; added the `FallDamageStartVelocity` and `FallDamageModifier` in the `Dwarves` module.
++ 2-Dec-2025: Update for CD2-v17: added the `Vars` module, the `Alert` field on wavespawners, the `DroppodDistance`, `MuleDroppodDistance`, `Nonzero`, `Select`, `EnemyHealth`, `EnemyDistance`, `SecondaryFinished`, `LockFLoat`, `LockBoolean` and `LockString` mutators.

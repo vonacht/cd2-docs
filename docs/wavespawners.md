@@ -31,6 +31,7 @@ The following table shows the valid fields inside a `WaveSpawner`:
 | SpawnOnEnable | Bool | If true, the wave will start spawning enemies as soon as it is enabled, skipping the initial `Interval`. Defaults to False.|
 | UnlockInterval | Bool | If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False. |
 | PauseOnDisable | Bool | If true, the timer for the next spawn is paused while the wavespawner is disabled and resumes when it is enabled. If false, the timer is reset when the spawner is re-enabled. Defaults to False. |
+| Alert | Bool | If true, the enemies will spawn aggroed to the player. Defaults to True. |
 
 All `WaveSpawner` fields can be mutated. The following snippet shows a popular spawner useful in Elimination missions, which spawns a bulk detonator with descriptor `ED_WeakBulk`, defined in the `Enemies` module, whenever there is a dreadnought on the map:
 

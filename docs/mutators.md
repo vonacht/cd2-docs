@@ -387,6 +387,15 @@ Example:
 ```
 ## DrillerCount
 Number of drillers in the lobby.
+
+## DroppodDistance
+Returns an average of the distance in cm between players and drop pod during mission extraction. It accepts the following fields:
+
++ `Default`: the default value to return when there is no drop pod.
++ `IncludeDowned`: a boolean which indicates whether to include dead dwarves in the average.
+
+See also: `MuleDroppodDistance` mutator.
+
 ## DuringDefend
 Becomes true when a black box, uplink or cell refuel is active.
 ## DuringDread
@@ -641,6 +650,20 @@ Since CD2 v15, it is possible to specify a list of ED's and avoid having to nest
 },
 ```
 
+## EnemyHealth
+This mutator returns the health of a descriptor or group of descriptors. The mutator can be configured to return the maximum, minimum, or average health among enemies with a descriptor. This value is a percentage between 0 and 1. A Default can (and should) be specified. It accepts the following fields:
+
++ `ED` or `EDs`: the descriptor or descriptors of the enemy or group of enemies you want to track. 
++ `Default`: the value returned when there are no `ED` or `EDs` alive. Returns 0 by default.
++ `Type`: a string value which is either `Min`, `Max` or `Average`. Defaults to `Average`.
+
+## EnemyDistance 
+This mutator returns the distance of enemies of a descriptor or descriptors. The mutator can be configured to return the maximum, minimum, or average distance to the closest living player among enemies. Distance is in cm. A Default can (and should) be specified based on desired behavior. It accepts the following fields:
+
++ `ED` or `EDs`: the descriptor or descriptors of the enemy or group of enemies you want to track. 
++ `Default`: the value returned when there are no `ED` or `EDs` alive. Returns 0 by default.
++ `Type`: a string value which is either `Min`, `Max` or `Average`. Defaults to `Min`.
+
 ## EngineerCount
 Number of engineers in the lobby. 
 
@@ -730,11 +753,58 @@ Joins two strings. Can be used together with `Int2String` and `Float2String` to 
 
 To see a more complex, check the `Countdown` mutator above.
 
+## LockFloat, LockBoolean, LockString
+
+This mutator will selectively update its value based on a condition. You may use `Lock` condition or the "Update" condition based on desired semantics:
+
++ `Lock`: When true, this mutator's value will not change.
++ `Update`: When false, this mutator's value will not change.
++ `Value`: This will be what the mutator will update to when it is unlocked.
+
+The following snippet shows a mutator that will increase each time a dwarf downs until the secondary objective is finished, after which it will no longer increase and will remain the same for the rest of the mission:
+
+```json 
+{
+  "Mutate": "LockFloat",
+  "Lock": {"Mutate": "SecondaryFinished"},
+  "Value": {"Mutate": "DwarvesDowns"}
+}
+```
+
+Another example: we create a mutator that will hold the value of a string until a dwarf is revived, and at that point we randomly select another one. This mutator could be followed by a `Select` mutator to react to the new string:
+
+```json 
+{
+  "Mutate": "LockString",
+  "Update": {
+    "Mutate": "TriggerOnChange",
+    "FallOnly": true,
+    "Value": { "Mutate": "DwarvesDown" }
+  },
+  "Value": {
+    "Mutate": "RandomChoice", 
+    "Choices": ["ChallengeA", "ChallengeB", "ChallengeC"]
+  }
+}
+```
+
 ## Max 
 Returns the maximum of a value.
 
 ## Min 
 Returns the minimum of a value.
+
+## MuleDroppodDistance 
+
+Returns an average of the distance in cm between the mule and the drop pod during mission extraction. It accepts the following fields:
+
++ `Default`: the default value to return when there is no drop pod or there is no mule.
+
+See also: `DroppodDistance` mutator.
+
+## Nonzero
+
+Accepts an integer or float `Value` and returns the boolean false if zero, true otherwise.
 
 ## Random 
 Continuously samples a float number between `Min` and `Max`, uniformly.
@@ -809,8 +879,44 @@ Caveat: the counts goes up immediately when a resupply is called, before it land
 Number of resupplies the team has called during the mission. This should increment almost immediately after a resupply is initiated, before another resupply can be called.
 ## ResupplyUsesConsumed
 The number of uses that have been consumed from resupplies this mission.
+
+## SecondaryFinished 
+Returns a boolean which is true when all secondary objectives have been completed, or when there are no secondary objectives (like in Sandbox). 
+
+
 ## ScoutCount
 Number of scouts in the lobby. 
+
+## Select
+Similar to a switch statement in programming languages, this mutator allows to select different options based on a string value. It is very useful when used together with global variables from the `Var` module:
+
+```json
+...,
+"Vars": {
+    "Pressure": {
+        "Type": "String",
+        "Value": "Easy"
+    }
+},
+"DifficultySetting": {
+    "EnemyCountModifier": {
+        "Mutate": "Multiply",
+        "BaseValues": {
+            "Mutate": "ByPlayerCount",
+            "Values": [1.9, 2.1, 2.7, 3.3]
+        },
+        "Multiplier": {
+            "Mutate": "Select",
+            "Select": {"Var": "Pressure"}
+            "Default": 1,
+            "Easy": 1, 
+            "Hard": 1.3 
+        }
+    }
+},
+...
+```
+
 ## SquareWave
 Alternates between two values with a given period.
 
