@@ -20,6 +20,7 @@ This website serves as a reference for Custom Difficulty 2, a mod for [Deep Rock
 * [Mutators](mutators.md). A list of currently supported mutators.
 * [Tutorials](grouped_cooldowns.md). An assortment of small guides related to different CD2 topics.
 * [MEV, DEA and EEE](mev-dea.md). A reference for the MEV and DEA mods and links to the EEE reference, used to add new enemy variants into the game.
+* [Common Edits](common_edits.md). Reference section for common difficulty edits.
 * [Resources](resources.md). Useful links related to Custom Difficulty.
 
 <figure markdown="span">
@@ -42,3 +43,4 @@ This website serves as a reference for Custom Difficulty 2, a mod for [Deep Rock
 + 15-Aug-2025: Added the `Usable` table in the `Salvage` module in Modules and some examples.
 + 11-Nov-2025: Update for CD2-v16: added the `Countdown`, `EnemiesRecentlySpawned`, `Int2String`, `Float2String` and the `Join` mutators; added the `Messages` and `SoundCues` module; added the `FallDamageStartVelocity` and `FallDamageModifier` in the `Dwarves` module.
 + 2-Dec-2025: Update for CD2-v17: added the `Vars` module, the `Alert` field on wavespawners, the `DroppodDistance`, `MuleDroppodDistance`, `Nonzero`, `Select`, `EnemyHealth`, `EnemyDistance`, `SecondaryFinished`, `LockFLoat`, `LockBoolean` and `LockString` mutators.
++ 11-Dec-2025: Added the [Common Edits](common_edits.md) section, changed theme to material.

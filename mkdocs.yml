@@ -1,6 +1,6 @@
 site_name: CD2 Reference
 site_description: Unofficial reference docs for CD2 (and other resources).
-theme: readthedocs
+theme: material
 extra_css:
   - stylesheets/tables.css
 markdown_extensions: 
@@ -11,11 +11,12 @@ nav:
   - FAQ: faq.md
   - The Basics of CD2: basics.md
   - Modules: modules.md 
-  - (Module) Enemies / EnemiesNoSync: enemies.md 
-  - (Module) Direct: direct.md 
-  - (Module) WaveSpawners: wavespawners.md
+  - Enemies / EnemiesNoSync: enemies.md 
+  - Direct: direct.md 
+  - WaveSpawners: wavespawners.md
   - Projectiles: projectiles.md
   - Mutators: mutators.md 
   - MEV, DEA and EEE: mev-dea.md
   - Tutorials: grouped_cooldowns.md
+  - Common edits: common_edits.md
   - Resources: resources.md
