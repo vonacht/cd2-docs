@@ -7,7 +7,7 @@
 * A: No. Only enable one CD version at a time. If you want to join CD1 lobbies while having CD2 enabled yourself and not suffer a desync in the nitra cost of resupplies,
 there is a cd1-client.pak available in PDRG that allows to do that.
 <br/>
-* **Q: How can I use this?**
+* **Q: How can I use the cd2 pak?**
 * A: Drag and drop the zip file into MINT and press install mods. You do not need to extract the pak from the zip to install.
 <br/>
 * **Q: Do clients need CD2 to play in my CD2 lobby?**

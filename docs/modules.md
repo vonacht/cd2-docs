@@ -325,7 +325,10 @@ A special module that accepts a float and controls the amount of nitra generated
 | StationaryPool | * |
 | EnemyPool | * |
 
-The fields marked with `*` accept the `Add` (list), `Remove` (list) and `Clear` (bool) fields for adding and removing enemies at will. The `EnemyPool` can be freely manipulated with [mutators](mutators.md) during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. **It is not recommended to mutate the other pools.** 
+The fields marked with `*` accept the `Add` (list), `Remove` (list) and `Clear` (bool) fields for adding and removing enemies at will. Some rules of thumb when dealing with the pools:
+
++ The `EnemyPool` can be freely manipulated with [mutators](mutators.md) during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. **It is not recommended to mutate the other pools.** 
++ For most users, adding enemies directly to the `EnemyPool` is the best option, and the other pools should be used only for removing vanilla enemies if desired: see the corresponding section in [Common Edits](common_edits.md).
 
 Example:
 
@@ -341,7 +344,7 @@ Example:
       "Min": 6,
       "Max": 6
     },
-    "CommonEnemies": {
+    "EnemyPool": {
       "Add": [
         "ED_JellyBreeder_Swarm",
         "ED_PatrolBot",

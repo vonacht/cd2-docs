@@ -1,6 +1,6 @@
 # Introduction
 
-This document serves as a reference for Custom Difficulty 2, a mod for [Deep Rock Galactic](https://store.steampowered.com/app/548430/Deep_Rock_Galactic/) which allows the creation of new hazards, or difficulties. Developed by @TheBrain as a successor to the Custom Difficulty mod, CD2 features many improvements over the flexibility and possibilities offered to difficulty designers:
+This website serves as a reference for Custom Difficulty 2, a mod for [Deep Rock Galactic](https://store.steampowered.com/app/548430/Deep_Rock_Galactic/) which allows the creation of new hazards, or difficulties. Developed by @TheBrain as a successor to the Custom Difficulty mod, CD2 features many improvements over the and possibilities offered to difficulty designers:
 
 * Allows players to a have a much finer control over many aspects of the gameplay by introducing [mutators](mutators.md), control flow structures similar to those found in common programming languages. 
 * Exposes many [enemy](enemies.md) controls to change their behaviour, spawning mechanics and even aspect by featuring custom materials replication to clients.
