@@ -1,6 +1,34 @@
 # `Direct` enemy controls 
 
-The following list was compiled by @TheBrain. It is not exhaustive and it is not guaranteed for all fields to work in-game. 
+`Direct` is a special field in enemy descriptors that allows changing properties that are not directly exposed by CD2 through other modules like the `Breeder` or the `CaveLeech` subfields. **When using `Direct`, remember that not all fields will work in-game.** The names of the `Direct` subfields can be found by looking into the enemy properties in UE4, but structs are not supported for now. A couple of examples of use:
+
+```json
+# A bulk with no meatballs, no explosion and no carve.
+"Enemies": {
+    "ED_Melee_Bulk":{
+        "Base": "ED_Spider_ExploderTank",
+        "Direct": {
+            "Float:CarveDiameter": 0,
+            "Int:NumClusterBombs": 0,
+            "Float:DamageDeathExplosion.DamageRadius": 0,
+            "Float:DamageDeathExplosion.MaxDamageRadius": 0
+        }
+    }
+}
+```
+
+```json
+# A patrol bot that deals no damage on bump
+"Enemies": {
+    "ED_PatrolBot": {
+        "Direct": {
+            "Float:BumpDamage.Damage": 0
+        }
+    }
+}
+```
+
+The following non-exhaustive list compiled by @theBrain is provided as a reference. 
 
 ## ED_PumpkinLootBug
 
