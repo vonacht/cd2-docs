@@ -18,7 +18,6 @@ This website serves as a reference for Custom Difficulty 2, a mod for [Deep Rock
 * [Wave Spawners](wavespawners.md). Reference for the `WaveSpawners` module.
 * [Projectiles](projectiles.md). Reference for the `Projectile` field of enemy descriptors.
 * [Mutators](mutators.md). A list of currently supported mutators.
-* [Tutorials](grouped_cooldowns.md). An assortment of small guides related to different CD2 topics.
 * [MEV, DEA and EEE](mev-dea.md). A reference for the MEV and DEA mods and links to the EEE reference, used to add new enemy variants into the game.
 * [Common Edits](common_edits.md). Reference section for common difficulty edits.
 * [Resources](resources.md). Useful links related to Custom Difficulty.

@@ -1,11 +1,15 @@
 # Resources
 
+## Useful links
+
 * [A Quick and Dirty Guide to Custom Difficulty for Deep Rock Galactic](https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0), a CD1 guide explaining most of the fields inside CD2's `DifficultySettings`.
 * [Vanilla descriptors](https://gist.github.com/trumank/5913a58e7f0f38fbc0b2d9e5cf5f51d7) and default values for Hazard 5.
 * [Materials Guide](media/Materials-1.pdf) by @TheBrain on how to test new enemy materials in Sandbox Utilities.
 * [Vanilla projectiles compilation](https://docs.google.com/spreadsheets/d/10NqPL5Z1zkU6hn4XMbxtirZBM9rf6nrCNKI3HSv6FtE/edit?gid=0#gid=0) by @Carrot, categorizing the vanilla projectiles by category, type and damage. 
 * [On Pubbing With CD2](https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa) a guide by @Spy detailing which parts of CD2 are safe to be used when designing difficulties made for pubbing (so clients are not expected to have CD2).
 * [DRG Hazard Scaling](https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview) file, for the values of the fields in `DifficultySetting` for the vanilla Hazards and some others. 
+* [Grouped cooldowns tutorial](https://markdownpastebin.com/?id=2044a6586b4d4735a0fe150325ee9285) by @theBrain.
+* [On Deep Rock Galactic Spawn Mechanics](https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?tab=t.0), a guide that goes into more detail about the pool system and how the spawn points system works.
 
 ## Enemy Descriptors
 
